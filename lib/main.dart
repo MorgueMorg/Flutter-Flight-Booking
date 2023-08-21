@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:mobyte_flight/common/router/go_router.dart';
 
 void main() => runZonedGuarded<void>(
       () => runApp(const MobyteFlightApp()),
@@ -14,13 +15,8 @@ class MobyteFlightApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.amber,
-        ),
-        body: const Placeholder(),
-      ),
+    return MaterialApp.router(
+      routerConfig: router,
     );
   }
 }
