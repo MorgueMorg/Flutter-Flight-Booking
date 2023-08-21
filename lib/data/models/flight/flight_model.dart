@@ -8,7 +8,12 @@ class FlightModel with _$FlightModel {
   const FlightModel._();
 
   factory FlightModel({
-    required String name,
+    required String flightNumber,
+    required String airline,
+    required String departureAirport,
+    required String arrivalAirport,
+    required String departureDateTime,
+    required String arrivalDateTime,
   }) = _FlightModel;
 
   factory FlightModel.fromJson(Map<String, dynamic> json) =>
