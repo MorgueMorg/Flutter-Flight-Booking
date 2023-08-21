@@ -20,7 +20,12 @@ FlightModel _$FlightModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FlightModel {
-  String get name => throw _privateConstructorUsedError;
+  String get flightNumber => throw _privateConstructorUsedError;
+  String get airline => throw _privateConstructorUsedError;
+  String get departureAirport => throw _privateConstructorUsedError;
+  String get arrivalAirport => throw _privateConstructorUsedError;
+  String get departureDateTime => throw _privateConstructorUsedError;
+  String get arrivalDateTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +39,13 @@ abstract class $FlightModelCopyWith<$Res> {
           FlightModel value, $Res Function(FlightModel) then) =
       _$FlightModelCopyWithImpl<$Res, FlightModel>;
   @useResult
-  $Res call({String name});
+  $Res call(
+      {String flightNumber,
+      String airline,
+      String departureAirport,
+      String arrivalAirport,
+      String departureDateTime,
+      String arrivalDateTime});
 }
 
 /// @nodoc
@@ -50,12 +61,37 @@ class _$FlightModelCopyWithImpl<$Res, $Val extends FlightModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? flightNumber = null,
+    Object? airline = null,
+    Object? departureAirport = null,
+    Object? arrivalAirport = null,
+    Object? departureDateTime = null,
+    Object? arrivalDateTime = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      flightNumber: null == flightNumber
+          ? _value.flightNumber
+          : flightNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      airline: null == airline
+          ? _value.airline
+          : airline // ignore: cast_nullable_to_non_nullable
+              as String,
+      departureAirport: null == departureAirport
+          ? _value.departureAirport
+          : departureAirport // ignore: cast_nullable_to_non_nullable
+              as String,
+      arrivalAirport: null == arrivalAirport
+          ? _value.arrivalAirport
+          : arrivalAirport // ignore: cast_nullable_to_non_nullable
+              as String,
+      departureDateTime: null == departureDateTime
+          ? _value.departureDateTime
+          : departureDateTime // ignore: cast_nullable_to_non_nullable
+              as String,
+      arrivalDateTime: null == arrivalDateTime
+          ? _value.arrivalDateTime
+          : arrivalDateTime // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -69,7 +105,13 @@ abstract class _$$_FlightModelCopyWith<$Res>
       __$$_FlightModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name});
+  $Res call(
+      {String flightNumber,
+      String airline,
+      String departureAirport,
+      String arrivalAirport,
+      String departureDateTime,
+      String arrivalDateTime});
 }
 
 /// @nodoc
@@ -83,12 +125,37 @@ class __$$_FlightModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? flightNumber = null,
+    Object? airline = null,
+    Object? departureAirport = null,
+    Object? arrivalAirport = null,
+    Object? departureDateTime = null,
+    Object? arrivalDateTime = null,
   }) {
     return _then(_$_FlightModel(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      flightNumber: null == flightNumber
+          ? _value.flightNumber
+          : flightNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      airline: null == airline
+          ? _value.airline
+          : airline // ignore: cast_nullable_to_non_nullable
+              as String,
+      departureAirport: null == departureAirport
+          ? _value.departureAirport
+          : departureAirport // ignore: cast_nullable_to_non_nullable
+              as String,
+      arrivalAirport: null == arrivalAirport
+          ? _value.arrivalAirport
+          : arrivalAirport // ignore: cast_nullable_to_non_nullable
+              as String,
+      departureDateTime: null == departureDateTime
+          ? _value.departureDateTime
+          : departureDateTime // ignore: cast_nullable_to_non_nullable
+              as String,
+      arrivalDateTime: null == arrivalDateTime
+          ? _value.arrivalDateTime
+          : arrivalDateTime // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -97,17 +164,34 @@ class __$$_FlightModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_FlightModel extends _FlightModel {
-  _$_FlightModel({required this.name}) : super._();
+  _$_FlightModel(
+      {required this.flightNumber,
+      required this.airline,
+      required this.departureAirport,
+      required this.arrivalAirport,
+      required this.departureDateTime,
+      required this.arrivalDateTime})
+      : super._();
 
   factory _$_FlightModel.fromJson(Map<String, dynamic> json) =>
       _$$_FlightModelFromJson(json);
 
   @override
-  final String name;
+  final String flightNumber;
+  @override
+  final String airline;
+  @override
+  final String departureAirport;
+  @override
+  final String arrivalAirport;
+  @override
+  final String departureDateTime;
+  @override
+  final String arrivalDateTime;
 
   @override
   String toString() {
-    return 'FlightModel(name: $name)';
+    return 'FlightModel(flightNumber: $flightNumber, airline: $airline, departureAirport: $departureAirport, arrivalAirport: $arrivalAirport, departureDateTime: $departureDateTime, arrivalDateTime: $arrivalDateTime)';
   }
 
   @override
@@ -115,12 +199,23 @@ class _$_FlightModel extends _FlightModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FlightModel &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.flightNumber, flightNumber) ||
+                other.flightNumber == flightNumber) &&
+            (identical(other.airline, airline) || other.airline == airline) &&
+            (identical(other.departureAirport, departureAirport) ||
+                other.departureAirport == departureAirport) &&
+            (identical(other.arrivalAirport, arrivalAirport) ||
+                other.arrivalAirport == arrivalAirport) &&
+            (identical(other.departureDateTime, departureDateTime) ||
+                other.departureDateTime == departureDateTime) &&
+            (identical(other.arrivalDateTime, arrivalDateTime) ||
+                other.arrivalDateTime == arrivalDateTime));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name);
+  int get hashCode => Object.hash(runtimeType, flightNumber, airline,
+      departureAirport, arrivalAirport, departureDateTime, arrivalDateTime);
 
   @JsonKey(ignore: true)
   @override
@@ -137,14 +232,30 @@ class _$_FlightModel extends _FlightModel {
 }
 
 abstract class _FlightModel extends FlightModel {
-  factory _FlightModel({required final String name}) = _$_FlightModel;
+  factory _FlightModel(
+      {required final String flightNumber,
+      required final String airline,
+      required final String departureAirport,
+      required final String arrivalAirport,
+      required final String departureDateTime,
+      required final String arrivalDateTime}) = _$_FlightModel;
   _FlightModel._() : super._();
 
   factory _FlightModel.fromJson(Map<String, dynamic> json) =
       _$_FlightModel.fromJson;
 
   @override
-  String get name;
+  String get flightNumber;
+  @override
+  String get airline;
+  @override
+  String get departureAirport;
+  @override
+  String get arrivalAirport;
+  @override
+  String get departureDateTime;
+  @override
+  String get arrivalDateTime;
   @override
   @JsonKey(ignore: true)
   _$$_FlightModelCopyWith<_$_FlightModel> get copyWith =>
