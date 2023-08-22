@@ -20,12 +20,14 @@ FlightModel _$FlightModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FlightModel {
-  String get flightNumber => throw _privateConstructorUsedError;
-  String get airline => throw _privateConstructorUsedError;
-  String get departureAirport => throw _privateConstructorUsedError;
-  String get arrivalAirport => throw _privateConstructorUsedError;
-  String get departureDateTime => throw _privateConstructorUsedError;
-  String get arrivalDateTime => throw _privateConstructorUsedError;
+  String? get flightStatus => throw _privateConstructorUsedError;
+  String? get flightDate => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get departure => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get arrival => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get airline => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get flight => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get aircraft => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get live => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,12 +42,14 @@ abstract class $FlightModelCopyWith<$Res> {
       _$FlightModelCopyWithImpl<$Res, FlightModel>;
   @useResult
   $Res call(
-      {String flightNumber,
-      String airline,
-      String departureAirport,
-      String arrivalAirport,
-      String departureDateTime,
-      String arrivalDateTime});
+      {String? flightStatus,
+      String? flightDate,
+      Map<String, dynamic>? departure,
+      Map<String, dynamic>? arrival,
+      Map<String, dynamic>? airline,
+      Map<String, dynamic>? flight,
+      Map<String, dynamic>? aircraft,
+      Map<String, dynamic>? live});
 }
 
 /// @nodoc
@@ -61,38 +65,48 @@ class _$FlightModelCopyWithImpl<$Res, $Val extends FlightModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flightNumber = null,
-    Object? airline = null,
-    Object? departureAirport = null,
-    Object? arrivalAirport = null,
-    Object? departureDateTime = null,
-    Object? arrivalDateTime = null,
+    Object? flightStatus = freezed,
+    Object? flightDate = freezed,
+    Object? departure = freezed,
+    Object? arrival = freezed,
+    Object? airline = freezed,
+    Object? flight = freezed,
+    Object? aircraft = freezed,
+    Object? live = freezed,
   }) {
     return _then(_value.copyWith(
-      flightNumber: null == flightNumber
-          ? _value.flightNumber
-          : flightNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      airline: null == airline
+      flightStatus: freezed == flightStatus
+          ? _value.flightStatus
+          : flightStatus // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flightDate: freezed == flightDate
+          ? _value.flightDate
+          : flightDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      departure: freezed == departure
+          ? _value.departure
+          : departure // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      arrival: freezed == arrival
+          ? _value.arrival
+          : arrival // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      airline: freezed == airline
           ? _value.airline
           : airline // ignore: cast_nullable_to_non_nullable
-              as String,
-      departureAirport: null == departureAirport
-          ? _value.departureAirport
-          : departureAirport // ignore: cast_nullable_to_non_nullable
-              as String,
-      arrivalAirport: null == arrivalAirport
-          ? _value.arrivalAirport
-          : arrivalAirport // ignore: cast_nullable_to_non_nullable
-              as String,
-      departureDateTime: null == departureDateTime
-          ? _value.departureDateTime
-          : departureDateTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      arrivalDateTime: null == arrivalDateTime
-          ? _value.arrivalDateTime
-          : arrivalDateTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Map<String, dynamic>?,
+      flight: freezed == flight
+          ? _value.flight
+          : flight // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      aircraft: freezed == aircraft
+          ? _value.aircraft
+          : aircraft // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      live: freezed == live
+          ? _value.live
+          : live // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -106,12 +120,14 @@ abstract class _$$_FlightModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String flightNumber,
-      String airline,
-      String departureAirport,
-      String arrivalAirport,
-      String departureDateTime,
-      String arrivalDateTime});
+      {String? flightStatus,
+      String? flightDate,
+      Map<String, dynamic>? departure,
+      Map<String, dynamic>? arrival,
+      Map<String, dynamic>? airline,
+      Map<String, dynamic>? flight,
+      Map<String, dynamic>? aircraft,
+      Map<String, dynamic>? live});
 }
 
 /// @nodoc
@@ -125,38 +141,48 @@ class __$$_FlightModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flightNumber = null,
-    Object? airline = null,
-    Object? departureAirport = null,
-    Object? arrivalAirport = null,
-    Object? departureDateTime = null,
-    Object? arrivalDateTime = null,
+    Object? flightStatus = freezed,
+    Object? flightDate = freezed,
+    Object? departure = freezed,
+    Object? arrival = freezed,
+    Object? airline = freezed,
+    Object? flight = freezed,
+    Object? aircraft = freezed,
+    Object? live = freezed,
   }) {
     return _then(_$_FlightModel(
-      flightNumber: null == flightNumber
-          ? _value.flightNumber
-          : flightNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      airline: null == airline
-          ? _value.airline
+      flightStatus: freezed == flightStatus
+          ? _value.flightStatus
+          : flightStatus // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flightDate: freezed == flightDate
+          ? _value.flightDate
+          : flightDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      departure: freezed == departure
+          ? _value._departure
+          : departure // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      arrival: freezed == arrival
+          ? _value._arrival
+          : arrival // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      airline: freezed == airline
+          ? _value._airline
           : airline // ignore: cast_nullable_to_non_nullable
-              as String,
-      departureAirport: null == departureAirport
-          ? _value.departureAirport
-          : departureAirport // ignore: cast_nullable_to_non_nullable
-              as String,
-      arrivalAirport: null == arrivalAirport
-          ? _value.arrivalAirport
-          : arrivalAirport // ignore: cast_nullable_to_non_nullable
-              as String,
-      departureDateTime: null == departureDateTime
-          ? _value.departureDateTime
-          : departureDateTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      arrivalDateTime: null == arrivalDateTime
-          ? _value.arrivalDateTime
-          : arrivalDateTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Map<String, dynamic>?,
+      flight: freezed == flight
+          ? _value._flight
+          : flight // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      aircraft: freezed == aircraft
+          ? _value._aircraft
+          : aircraft // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      live: freezed == live
+          ? _value._live
+          : live // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -165,33 +191,92 @@ class __$$_FlightModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FlightModel extends _FlightModel {
   _$_FlightModel(
-      {required this.flightNumber,
-      required this.airline,
-      required this.departureAirport,
-      required this.arrivalAirport,
-      required this.departureDateTime,
-      required this.arrivalDateTime})
-      : super._();
+      {required this.flightStatus,
+      required this.flightDate,
+      required final Map<String, dynamic>? departure,
+      required final Map<String, dynamic>? arrival,
+      required final Map<String, dynamic>? airline,
+      required final Map<String, dynamic>? flight,
+      required final Map<String, dynamic>? aircraft,
+      required final Map<String, dynamic>? live})
+      : _departure = departure,
+        _arrival = arrival,
+        _airline = airline,
+        _flight = flight,
+        _aircraft = aircraft,
+        _live = live,
+        super._();
 
   factory _$_FlightModel.fromJson(Map<String, dynamic> json) =>
       _$$_FlightModelFromJson(json);
 
   @override
-  final String flightNumber;
+  final String? flightStatus;
   @override
-  final String airline;
+  final String? flightDate;
+  final Map<String, dynamic>? _departure;
   @override
-  final String departureAirport;
+  Map<String, dynamic>? get departure {
+    final value = _departure;
+    if (value == null) return null;
+    if (_departure is EqualUnmodifiableMapView) return _departure;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic>? _arrival;
   @override
-  final String arrivalAirport;
+  Map<String, dynamic>? get arrival {
+    final value = _arrival;
+    if (value == null) return null;
+    if (_arrival is EqualUnmodifiableMapView) return _arrival;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic>? _airline;
   @override
-  final String departureDateTime;
+  Map<String, dynamic>? get airline {
+    final value = _airline;
+    if (value == null) return null;
+    if (_airline is EqualUnmodifiableMapView) return _airline;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic>? _flight;
   @override
-  final String arrivalDateTime;
+  Map<String, dynamic>? get flight {
+    final value = _flight;
+    if (value == null) return null;
+    if (_flight is EqualUnmodifiableMapView) return _flight;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic>? _aircraft;
+  @override
+  Map<String, dynamic>? get aircraft {
+    final value = _aircraft;
+    if (value == null) return null;
+    if (_aircraft is EqualUnmodifiableMapView) return _aircraft;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic>? _live;
+  @override
+  Map<String, dynamic>? get live {
+    final value = _live;
+    if (value == null) return null;
+    if (_live is EqualUnmodifiableMapView) return _live;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'FlightModel(flightNumber: $flightNumber, airline: $airline, departureAirport: $departureAirport, arrivalAirport: $arrivalAirport, departureDateTime: $departureDateTime, arrivalDateTime: $arrivalDateTime)';
+    return 'FlightModel(flightStatus: $flightStatus, flightDate: $flightDate, departure: $departure, arrival: $arrival, airline: $airline, flight: $flight, aircraft: $aircraft, live: $live)';
   }
 
   @override
@@ -199,23 +284,31 @@ class _$_FlightModel extends _FlightModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FlightModel &&
-            (identical(other.flightNumber, flightNumber) ||
-                other.flightNumber == flightNumber) &&
-            (identical(other.airline, airline) || other.airline == airline) &&
-            (identical(other.departureAirport, departureAirport) ||
-                other.departureAirport == departureAirport) &&
-            (identical(other.arrivalAirport, arrivalAirport) ||
-                other.arrivalAirport == arrivalAirport) &&
-            (identical(other.departureDateTime, departureDateTime) ||
-                other.departureDateTime == departureDateTime) &&
-            (identical(other.arrivalDateTime, arrivalDateTime) ||
-                other.arrivalDateTime == arrivalDateTime));
+            (identical(other.flightStatus, flightStatus) ||
+                other.flightStatus == flightStatus) &&
+            (identical(other.flightDate, flightDate) ||
+                other.flightDate == flightDate) &&
+            const DeepCollectionEquality()
+                .equals(other._departure, _departure) &&
+            const DeepCollectionEquality().equals(other._arrival, _arrival) &&
+            const DeepCollectionEquality().equals(other._airline, _airline) &&
+            const DeepCollectionEquality().equals(other._flight, _flight) &&
+            const DeepCollectionEquality().equals(other._aircraft, _aircraft) &&
+            const DeepCollectionEquality().equals(other._live, _live));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, flightNumber, airline,
-      departureAirport, arrivalAirport, departureDateTime, arrivalDateTime);
+  int get hashCode => Object.hash(
+      runtimeType,
+      flightStatus,
+      flightDate,
+      const DeepCollectionEquality().hash(_departure),
+      const DeepCollectionEquality().hash(_arrival),
+      const DeepCollectionEquality().hash(_airline),
+      const DeepCollectionEquality().hash(_flight),
+      const DeepCollectionEquality().hash(_aircraft),
+      const DeepCollectionEquality().hash(_live));
 
   @JsonKey(ignore: true)
   @override
@@ -233,29 +326,35 @@ class _$_FlightModel extends _FlightModel {
 
 abstract class _FlightModel extends FlightModel {
   factory _FlightModel(
-      {required final String flightNumber,
-      required final String airline,
-      required final String departureAirport,
-      required final String arrivalAirport,
-      required final String departureDateTime,
-      required final String arrivalDateTime}) = _$_FlightModel;
+      {required final String? flightStatus,
+      required final String? flightDate,
+      required final Map<String, dynamic>? departure,
+      required final Map<String, dynamic>? arrival,
+      required final Map<String, dynamic>? airline,
+      required final Map<String, dynamic>? flight,
+      required final Map<String, dynamic>? aircraft,
+      required final Map<String, dynamic>? live}) = _$_FlightModel;
   _FlightModel._() : super._();
 
   factory _FlightModel.fromJson(Map<String, dynamic> json) =
       _$_FlightModel.fromJson;
 
   @override
-  String get flightNumber;
+  String? get flightStatus;
   @override
-  String get airline;
+  String? get flightDate;
   @override
-  String get departureAirport;
+  Map<String, dynamic>? get departure;
   @override
-  String get arrivalAirport;
+  Map<String, dynamic>? get arrival;
   @override
-  String get departureDateTime;
+  Map<String, dynamic>? get airline;
   @override
-  String get arrivalDateTime;
+  Map<String, dynamic>? get flight;
+  @override
+  Map<String, dynamic>? get aircraft;
+  @override
+  Map<String, dynamic>? get live;
   @override
   @JsonKey(ignore: true)
   _$$_FlightModelCopyWith<_$_FlightModel> get copyWith =>

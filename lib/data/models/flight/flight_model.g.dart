@@ -8,20 +8,24 @@ part of 'flight_model.dart';
 
 _$_FlightModel _$$_FlightModelFromJson(Map<String, dynamic> json) =>
     _$_FlightModel(
-      flightNumber: json['flightNumber'] as String,
-      airline: json['airline'] as String,
-      departureAirport: json['departureAirport'] as String,
-      arrivalAirport: json['arrivalAirport'] as String,
-      departureDateTime: json['departureDateTime'] as String,
-      arrivalDateTime: json['arrivalDateTime'] as String,
+      flightStatus: json['flightStatus'] as String?,
+      flightDate: json['flightDate'] as String?,
+      departure: json['departure'] as Map<String, dynamic>?,
+      arrival: json['arrival'] as Map<String, dynamic>?,
+      airline: json['airline'] as Map<String, dynamic>?,
+      flight: json['flight'] as Map<String, dynamic>?,
+      aircraft: json['aircraft'] as Map<String, dynamic>?,
+      live: json['live'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$$_FlightModelToJson(_$_FlightModel instance) =>
     <String, dynamic>{
-      'flightNumber': instance.flightNumber,
+      'flightStatus': instance.flightStatus,
+      'flightDate': instance.flightDate,
+      'departure': instance.departure,
+      'arrival': instance.arrival,
       'airline': instance.airline,
-      'departureAirport': instance.departureAirport,
-      'arrivalAirport': instance.arrivalAirport,
-      'departureDateTime': instance.departureDateTime,
-      'arrivalDateTime': instance.arrivalDateTime,
+      'flight': instance.flight,
+      'aircraft': instance.aircraft,
+      'live': instance.live,
     };
