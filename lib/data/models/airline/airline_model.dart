@@ -8,9 +8,9 @@ class AirlineModel with _$AirlineModel {
   const AirlineModel._();
 
   factory AirlineModel({
-    required String name,
-    required String iata,
-    required String icao,
+    required String? name,
+    required String? iata,
+    required String? icao,
   }) = _AirlineModel;
 
   factory AirlineModel.fromJson(Map<String, dynamic> json) =>

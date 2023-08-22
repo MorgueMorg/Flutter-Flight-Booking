@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobyte_flight/data/models/flight/flight_model.dart';
+import 'package:mobyte_flight/data/models/flight_info/flight_info_model.dart';
 import 'package:mobyte_flight/data/repositories/flight_repository.dart';
 
 class MainScreen extends StatefulWidget {
@@ -11,7 +11,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final FlightRepository _flightRepository = FlightRepository();
-  late Future<List<FlightModel>> _flightsFuture;
+  late Future<List<FlightInfoModel>> _flightsFuture;
 
   @override
   void initState() {
@@ -25,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         title: const Text('Flight List'),
       ),
-      body: FutureBuilder<List<FlightModel>>(
+      body: FutureBuilder<List<FlightInfoModel>>(
         future: _flightsFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -41,11 +41,12 @@ class _MainScreenState extends State<MainScreen> {
               itemBuilder: (context, index) {
                 final flight = flights[index];
                 return ListTile(
-                  title: Text('Flight Date: ${flight.flight}'),
-                  subtitle: Text('Airline: ${flight.airline}\n'
-                      'Departure: ${flight.departure}\n'
-                      'Arrival: ${flight.arrival}\n'
+                  title: Text('Flight Date: ${flight.flightDate}'),
+                  subtitle: Text('Airline: ${flight.airline!.name}\n'
+                      'Departure: ${flight.departure!.airport}\n'
+                      'Arrival: ${flight.arrival!.airport}/${flight.arrival!.timezone}\n'
                       'Status: ${flight.flightStatus}'),
+                  trailing: Text("Flight Number: ${flight.flight!.number}"),
                 );
               },
             );
