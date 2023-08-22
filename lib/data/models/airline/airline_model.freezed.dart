@@ -20,9 +20,9 @@ AirlineModel _$AirlineModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AirlineModel {
-  String get name => throw _privateConstructorUsedError;
-  String get iata => throw _privateConstructorUsedError;
-  String get icao => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get iata => throw _privateConstructorUsedError;
+  String? get icao => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $AirlineModelCopyWith<$Res> {
           AirlineModel value, $Res Function(AirlineModel) then) =
       _$AirlineModelCopyWithImpl<$Res, AirlineModel>;
   @useResult
-  $Res call({String name, String iata, String icao});
+  $Res call({String? name, String? iata, String? icao});
 }
 
 /// @nodoc
@@ -52,23 +52,23 @@ class _$AirlineModelCopyWithImpl<$Res, $Val extends AirlineModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? iata = null,
-    Object? icao = null,
+    Object? name = freezed,
+    Object? iata = freezed,
+    Object? icao = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      iata: null == iata
+              as String?,
+      iata: freezed == iata
           ? _value.iata
           : iata // ignore: cast_nullable_to_non_nullable
-              as String,
-      icao: null == icao
+              as String?,
+      icao: freezed == icao
           ? _value.icao
           : icao // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$_AirlineModelCopyWith<$Res>
       __$$_AirlineModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String iata, String icao});
+  $Res call({String? name, String? iata, String? icao});
 }
 
 /// @nodoc
@@ -95,23 +95,23 @@ class __$$_AirlineModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? iata = null,
-    Object? icao = null,
+    Object? name = freezed,
+    Object? iata = freezed,
+    Object? icao = freezed,
   }) {
     return _then(_$_AirlineModel(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      iata: null == iata
+              as String?,
+      iata: freezed == iata
           ? _value.iata
           : iata // ignore: cast_nullable_to_non_nullable
-              as String,
-      icao: null == icao
+              as String?,
+      icao: freezed == icao
           ? _value.icao
           : icao // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -126,11 +126,11 @@ class _$_AirlineModel extends _AirlineModel {
       _$$_AirlineModelFromJson(json);
 
   @override
-  final String name;
+  final String? name;
   @override
-  final String iata;
+  final String? iata;
   @override
-  final String icao;
+  final String? icao;
 
   @override
   String toString() {
@@ -167,20 +167,20 @@ class _$_AirlineModel extends _AirlineModel {
 
 abstract class _AirlineModel extends AirlineModel {
   factory _AirlineModel(
-      {required final String name,
-      required final String iata,
-      required final String icao}) = _$_AirlineModel;
+      {required final String? name,
+      required final String? iata,
+      required final String? icao}) = _$_AirlineModel;
   _AirlineModel._() : super._();
 
   factory _AirlineModel.fromJson(Map<String, dynamic> json) =
       _$_AirlineModel.fromJson;
 
   @override
-  String get name;
+  String? get name;
   @override
-  String get iata;
+  String? get iata;
   @override
-  String get icao;
+  String? get icao;
   @override
   @JsonKey(ignore: true)
   _$$_AirlineModelCopyWith<_$_AirlineModel> get copyWith =>

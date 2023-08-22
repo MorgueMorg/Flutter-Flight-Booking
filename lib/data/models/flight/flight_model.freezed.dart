@@ -20,12 +20,10 @@ FlightModel _$FlightModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FlightModel {
-  String get flightNumber => throw _privateConstructorUsedError;
-  String get airline => throw _privateConstructorUsedError;
-  String get departureAirport => throw _privateConstructorUsedError;
-  String get arrivalAirport => throw _privateConstructorUsedError;
-  String get departureDateTime => throw _privateConstructorUsedError;
-  String get arrivalDateTime => throw _privateConstructorUsedError;
+  String? get number => throw _privateConstructorUsedError;
+  String? get iata => throw _privateConstructorUsedError;
+  String? get icao => throw _privateConstructorUsedError;
+  String? get codeshared => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,13 +37,7 @@ abstract class $FlightModelCopyWith<$Res> {
           FlightModel value, $Res Function(FlightModel) then) =
       _$FlightModelCopyWithImpl<$Res, FlightModel>;
   @useResult
-  $Res call(
-      {String flightNumber,
-      String airline,
-      String departureAirport,
-      String arrivalAirport,
-      String departureDateTime,
-      String arrivalDateTime});
+  $Res call({String? number, String? iata, String? icao, String? codeshared});
 }
 
 /// @nodoc
@@ -61,38 +53,28 @@ class _$FlightModelCopyWithImpl<$Res, $Val extends FlightModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flightNumber = null,
-    Object? airline = null,
-    Object? departureAirport = null,
-    Object? arrivalAirport = null,
-    Object? departureDateTime = null,
-    Object? arrivalDateTime = null,
+    Object? number = freezed,
+    Object? iata = freezed,
+    Object? icao = freezed,
+    Object? codeshared = freezed,
   }) {
     return _then(_value.copyWith(
-      flightNumber: null == flightNumber
-          ? _value.flightNumber
-          : flightNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      airline: null == airline
-          ? _value.airline
-          : airline // ignore: cast_nullable_to_non_nullable
-              as String,
-      departureAirport: null == departureAirport
-          ? _value.departureAirport
-          : departureAirport // ignore: cast_nullable_to_non_nullable
-              as String,
-      arrivalAirport: null == arrivalAirport
-          ? _value.arrivalAirport
-          : arrivalAirport // ignore: cast_nullable_to_non_nullable
-              as String,
-      departureDateTime: null == departureDateTime
-          ? _value.departureDateTime
-          : departureDateTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      arrivalDateTime: null == arrivalDateTime
-          ? _value.arrivalDateTime
-          : arrivalDateTime // ignore: cast_nullable_to_non_nullable
-              as String,
+      number: freezed == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as String?,
+      iata: freezed == iata
+          ? _value.iata
+          : iata // ignore: cast_nullable_to_non_nullable
+              as String?,
+      icao: freezed == icao
+          ? _value.icao
+          : icao // ignore: cast_nullable_to_non_nullable
+              as String?,
+      codeshared: freezed == codeshared
+          ? _value.codeshared
+          : codeshared // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -105,13 +87,7 @@ abstract class _$$_FlightModelCopyWith<$Res>
       __$$_FlightModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String flightNumber,
-      String airline,
-      String departureAirport,
-      String arrivalAirport,
-      String departureDateTime,
-      String arrivalDateTime});
+  $Res call({String? number, String? iata, String? icao, String? codeshared});
 }
 
 /// @nodoc
@@ -125,38 +101,28 @@ class __$$_FlightModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? flightNumber = null,
-    Object? airline = null,
-    Object? departureAirport = null,
-    Object? arrivalAirport = null,
-    Object? departureDateTime = null,
-    Object? arrivalDateTime = null,
+    Object? number = freezed,
+    Object? iata = freezed,
+    Object? icao = freezed,
+    Object? codeshared = freezed,
   }) {
     return _then(_$_FlightModel(
-      flightNumber: null == flightNumber
-          ? _value.flightNumber
-          : flightNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      airline: null == airline
-          ? _value.airline
-          : airline // ignore: cast_nullable_to_non_nullable
-              as String,
-      departureAirport: null == departureAirport
-          ? _value.departureAirport
-          : departureAirport // ignore: cast_nullable_to_non_nullable
-              as String,
-      arrivalAirport: null == arrivalAirport
-          ? _value.arrivalAirport
-          : arrivalAirport // ignore: cast_nullable_to_non_nullable
-              as String,
-      departureDateTime: null == departureDateTime
-          ? _value.departureDateTime
-          : departureDateTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      arrivalDateTime: null == arrivalDateTime
-          ? _value.arrivalDateTime
-          : arrivalDateTime // ignore: cast_nullable_to_non_nullable
-              as String,
+      number: freezed == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as String?,
+      iata: freezed == iata
+          ? _value.iata
+          : iata // ignore: cast_nullable_to_non_nullable
+              as String?,
+      icao: freezed == icao
+          ? _value.icao
+          : icao // ignore: cast_nullable_to_non_nullable
+              as String?,
+      codeshared: freezed == codeshared
+          ? _value.codeshared
+          : codeshared // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -165,33 +131,27 @@ class __$$_FlightModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FlightModel extends _FlightModel {
   _$_FlightModel(
-      {required this.flightNumber,
-      required this.airline,
-      required this.departureAirport,
-      required this.arrivalAirport,
-      required this.departureDateTime,
-      required this.arrivalDateTime})
+      {required this.number,
+      required this.iata,
+      required this.icao,
+      required this.codeshared})
       : super._();
 
   factory _$_FlightModel.fromJson(Map<String, dynamic> json) =>
       _$$_FlightModelFromJson(json);
 
   @override
-  final String flightNumber;
+  final String? number;
   @override
-  final String airline;
+  final String? iata;
   @override
-  final String departureAirport;
+  final String? icao;
   @override
-  final String arrivalAirport;
-  @override
-  final String departureDateTime;
-  @override
-  final String arrivalDateTime;
+  final String? codeshared;
 
   @override
   String toString() {
-    return 'FlightModel(flightNumber: $flightNumber, airline: $airline, departureAirport: $departureAirport, arrivalAirport: $arrivalAirport, departureDateTime: $departureDateTime, arrivalDateTime: $arrivalDateTime)';
+    return 'FlightModel(number: $number, iata: $iata, icao: $icao, codeshared: $codeshared)';
   }
 
   @override
@@ -199,23 +159,16 @@ class _$_FlightModel extends _FlightModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FlightModel &&
-            (identical(other.flightNumber, flightNumber) ||
-                other.flightNumber == flightNumber) &&
-            (identical(other.airline, airline) || other.airline == airline) &&
-            (identical(other.departureAirport, departureAirport) ||
-                other.departureAirport == departureAirport) &&
-            (identical(other.arrivalAirport, arrivalAirport) ||
-                other.arrivalAirport == arrivalAirport) &&
-            (identical(other.departureDateTime, departureDateTime) ||
-                other.departureDateTime == departureDateTime) &&
-            (identical(other.arrivalDateTime, arrivalDateTime) ||
-                other.arrivalDateTime == arrivalDateTime));
+            (identical(other.number, number) || other.number == number) &&
+            (identical(other.iata, iata) || other.iata == iata) &&
+            (identical(other.icao, icao) || other.icao == icao) &&
+            (identical(other.codeshared, codeshared) ||
+                other.codeshared == codeshared));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, flightNumber, airline,
-      departureAirport, arrivalAirport, departureDateTime, arrivalDateTime);
+  int get hashCode => Object.hash(runtimeType, number, iata, icao, codeshared);
 
   @JsonKey(ignore: true)
   @override
@@ -233,29 +186,23 @@ class _$_FlightModel extends _FlightModel {
 
 abstract class _FlightModel extends FlightModel {
   factory _FlightModel(
-      {required final String flightNumber,
-      required final String airline,
-      required final String departureAirport,
-      required final String arrivalAirport,
-      required final String departureDateTime,
-      required final String arrivalDateTime}) = _$_FlightModel;
+      {required final String? number,
+      required final String? iata,
+      required final String? icao,
+      required final String? codeshared}) = _$_FlightModel;
   _FlightModel._() : super._();
 
   factory _FlightModel.fromJson(Map<String, dynamic> json) =
       _$_FlightModel.fromJson;
 
   @override
-  String get flightNumber;
+  String? get number;
   @override
-  String get airline;
+  String? get iata;
   @override
-  String get departureAirport;
+  String? get icao;
   @override
-  String get arrivalAirport;
-  @override
-  String get departureDateTime;
-  @override
-  String get arrivalDateTime;
+  String? get codeshared;
   @override
   @JsonKey(ignore: true)
   _$$_FlightModelCopyWith<_$_FlightModel> get copyWith =>
