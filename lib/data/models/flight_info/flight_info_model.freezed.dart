@@ -26,8 +26,6 @@ mixin _$FlightInfoModel {
   ArrivalModel? get arrival => throw _privateConstructorUsedError;
   AirlineModel? get airline => throw _privateConstructorUsedError;
   FlightModel? get flight => throw _privateConstructorUsedError;
-  String? get aircraft => throw _privateConstructorUsedError;
-  String? get live => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,9 +45,7 @@ abstract class $FlightInfoModelCopyWith<$Res> {
       DepartureModel? departure,
       ArrivalModel? arrival,
       AirlineModel? airline,
-      FlightModel? flight,
-      String? aircraft,
-      String? live});
+      FlightModel? flight});
 
   $DepartureModelCopyWith<$Res>? get departure;
   $ArrivalModelCopyWith<$Res>? get arrival;
@@ -76,8 +72,6 @@ class _$FlightInfoModelCopyWithImpl<$Res, $Val extends FlightInfoModel>
     Object? arrival = freezed,
     Object? airline = freezed,
     Object? flight = freezed,
-    Object? aircraft = freezed,
-    Object? live = freezed,
   }) {
     return _then(_value.copyWith(
       flightDate: freezed == flightDate
@@ -104,14 +98,6 @@ class _$FlightInfoModelCopyWithImpl<$Res, $Val extends FlightInfoModel>
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
               as FlightModel?,
-      aircraft: freezed == aircraft
-          ? _value.aircraft
-          : aircraft // ignore: cast_nullable_to_non_nullable
-              as String?,
-      live: freezed == live
-          ? _value.live
-          : live // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 
@@ -178,9 +164,7 @@ abstract class _$$_FlightInfoModelCopyWith<$Res>
       DepartureModel? departure,
       ArrivalModel? arrival,
       AirlineModel? airline,
-      FlightModel? flight,
-      String? aircraft,
-      String? live});
+      FlightModel? flight});
 
   @override
   $DepartureModelCopyWith<$Res>? get departure;
@@ -209,8 +193,6 @@ class __$$_FlightInfoModelCopyWithImpl<$Res>
     Object? arrival = freezed,
     Object? airline = freezed,
     Object? flight = freezed,
-    Object? aircraft = freezed,
-    Object? live = freezed,
   }) {
     return _then(_$_FlightInfoModel(
       flightDate: freezed == flightDate
@@ -237,14 +219,6 @@ class __$$_FlightInfoModelCopyWithImpl<$Res>
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
               as FlightModel?,
-      aircraft: freezed == aircraft
-          ? _value.aircraft
-          : aircraft // ignore: cast_nullable_to_non_nullable
-              as String?,
-      live: freezed == live
-          ? _value.live
-          : live // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -258,9 +232,7 @@ class _$_FlightInfoModel extends _FlightInfoModel {
       required this.departure,
       required this.arrival,
       required this.airline,
-      required this.flight,
-      required this.aircraft,
-      required this.live})
+      required this.flight})
       : super._();
 
   factory _$_FlightInfoModel.fromJson(Map<String, dynamic> json) =>
@@ -278,14 +250,10 @@ class _$_FlightInfoModel extends _FlightInfoModel {
   final AirlineModel? airline;
   @override
   final FlightModel? flight;
-  @override
-  final String? aircraft;
-  @override
-  final String? live;
 
   @override
   String toString() {
-    return 'FlightInfoModel(flightDate: $flightDate, flightStatus: $flightStatus, departure: $departure, arrival: $arrival, airline: $airline, flight: $flight, aircraft: $aircraft, live: $live)';
+    return 'FlightInfoModel(flightDate: $flightDate, flightStatus: $flightStatus, departure: $departure, arrival: $arrival, airline: $airline, flight: $flight)';
   }
 
   @override
@@ -301,16 +269,13 @@ class _$_FlightInfoModel extends _FlightInfoModel {
                 other.departure == departure) &&
             (identical(other.arrival, arrival) || other.arrival == arrival) &&
             (identical(other.airline, airline) || other.airline == airline) &&
-            (identical(other.flight, flight) || other.flight == flight) &&
-            (identical(other.aircraft, aircraft) ||
-                other.aircraft == aircraft) &&
-            (identical(other.live, live) || other.live == live));
+            (identical(other.flight, flight) || other.flight == flight));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, flightDate, flightStatus,
-      departure, arrival, airline, flight, aircraft, live);
+      departure, arrival, airline, flight);
 
   @JsonKey(ignore: true)
   @override
@@ -333,9 +298,7 @@ abstract class _FlightInfoModel extends FlightInfoModel {
       required final DepartureModel? departure,
       required final ArrivalModel? arrival,
       required final AirlineModel? airline,
-      required final FlightModel? flight,
-      required final String? aircraft,
-      required final String? live}) = _$_FlightInfoModel;
+      required final FlightModel? flight}) = _$_FlightInfoModel;
   _FlightInfoModel._() : super._();
 
   factory _FlightInfoModel.fromJson(Map<String, dynamic> json) =
@@ -353,10 +316,6 @@ abstract class _FlightInfoModel extends FlightInfoModel {
   AirlineModel? get airline;
   @override
   FlightModel? get flight;
-  @override
-  String? get aircraft;
-  @override
-  String? get live;
   @override
   @JsonKey(ignore: true)
   _$$_FlightInfoModelCopyWith<_$_FlightInfoModel> get copyWith =>

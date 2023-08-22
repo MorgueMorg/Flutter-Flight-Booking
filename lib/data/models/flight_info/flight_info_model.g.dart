@@ -22,8 +22,6 @@ _$_FlightInfoModel _$$_FlightInfoModelFromJson(Map<String, dynamic> json) =>
       flight: json['flight'] == null
           ? null
           : FlightModel.fromJson(json['flight'] as Map<String, dynamic>),
-      aircraft: json['aircraft'] as String?,
-      live: json['live'] as String?,
     );
 
 Map<String, dynamic> _$$_FlightInfoModelToJson(_$_FlightInfoModel instance) =>
@@ -34,6 +32,4 @@ Map<String, dynamic> _$$_FlightInfoModelToJson(_$_FlightInfoModel instance) =>
       'arrival': instance.arrival,
       'airline': instance.airline,
       'flight': instance.flight,
-      'aircraft': instance.aircraft,
-      'live': instance.live,
     };
