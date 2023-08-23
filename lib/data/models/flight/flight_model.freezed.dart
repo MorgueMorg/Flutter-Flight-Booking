@@ -23,7 +23,7 @@ mixin _$FlightModel {
   String? get number => throw _privateConstructorUsedError;
   String? get iata => throw _privateConstructorUsedError;
   String? get icao => throw _privateConstructorUsedError;
-  String? get codeshared => throw _privateConstructorUsedError;
+  CodesharedModel? get codeshared => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,13 @@ abstract class $FlightModelCopyWith<$Res> {
           FlightModel value, $Res Function(FlightModel) then) =
       _$FlightModelCopyWithImpl<$Res, FlightModel>;
   @useResult
-  $Res call({String? number, String? iata, String? icao, String? codeshared});
+  $Res call(
+      {String? number,
+      String? iata,
+      String? icao,
+      CodesharedModel? codeshared});
+
+  $CodesharedModelCopyWith<$Res>? get codeshared;
 }
 
 /// @nodoc
@@ -74,8 +80,20 @@ class _$FlightModelCopyWithImpl<$Res, $Val extends FlightModel>
       codeshared: freezed == codeshared
           ? _value.codeshared
           : codeshared // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as CodesharedModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CodesharedModelCopyWith<$Res>? get codeshared {
+    if (_value.codeshared == null) {
+      return null;
+    }
+
+    return $CodesharedModelCopyWith<$Res>(_value.codeshared!, (value) {
+      return _then(_value.copyWith(codeshared: value) as $Val);
+    });
   }
 }
 
@@ -87,7 +105,14 @@ abstract class _$$_FlightModelCopyWith<$Res>
       __$$_FlightModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? number, String? iata, String? icao, String? codeshared});
+  $Res call(
+      {String? number,
+      String? iata,
+      String? icao,
+      CodesharedModel? codeshared});
+
+  @override
+  $CodesharedModelCopyWith<$Res>? get codeshared;
 }
 
 /// @nodoc
@@ -122,7 +147,7 @@ class __$$_FlightModelCopyWithImpl<$Res>
       codeshared: freezed == codeshared
           ? _value.codeshared
           : codeshared // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as CodesharedModel?,
     ));
   }
 }
@@ -147,7 +172,7 @@ class _$_FlightModel extends _FlightModel {
   @override
   final String? icao;
   @override
-  final String? codeshared;
+  final CodesharedModel? codeshared;
 
   @override
   String toString() {
@@ -189,7 +214,7 @@ abstract class _FlightModel extends FlightModel {
       {required final String? number,
       required final String? iata,
       required final String? icao,
-      required final String? codeshared}) = _$_FlightModel;
+      required final CodesharedModel? codeshared}) = _$_FlightModel;
   _FlightModel._() : super._();
 
   factory _FlightModel.fromJson(Map<String, dynamic> json) =
@@ -202,7 +227,7 @@ abstract class _FlightModel extends FlightModel {
   @override
   String? get icao;
   @override
-  String? get codeshared;
+  CodesharedModel? get codeshared;
   @override
   @JsonKey(ignore: true)
   _$$_FlightModelCopyWith<_$_FlightModel> get copyWith =>

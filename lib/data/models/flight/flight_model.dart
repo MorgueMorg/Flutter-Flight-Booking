@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mobyte_flight/data/models/codeshared/codeshared_model.dart';
 
 part 'flight_model.freezed.dart';
 part 'flight_model.g.dart';
@@ -11,7 +12,7 @@ class FlightModel with _$FlightModel{
     required String? number,
     required String? iata,
     required String? icao,
-    required String? codeshared,
+    required CodesharedModel? codeshared,
   }) = _FlightModel;
 
   factory FlightModel.fromJson(Map<String, dynamic> json) => _$FlightModelFromJson(json);
