@@ -40,13 +40,20 @@ class _MainScreenState extends State<MainScreen> {
               itemCount: flights.length,
               itemBuilder: (context, index) {
                 final flight = flights[index];
+
+                final departure = flight.departure;
+                final arrival = flight.arrival;
+                final airline = flight.airline;
+                final flightNumber = flight.flight;
+
                 return ListTile(
-                  title: Text('Flight Date: ${flight.flightDate}'),
-                  subtitle: Text('Airline: ${flight.airline!.name}\n'
-                      'Departure: ${flight.departure!.airport}\n'
-                      'Arrival: ${flight.arrival!.airport}/${flight.arrival!.timezone}\n'
-                      'Status: ${flight.flightStatus}'),
-                  trailing: Text("Flight Number: ${flight.flight!.number}"),
+                  title: Text('Flight Date: ${flight.flightDate ?? 'N/A'}'),
+                  subtitle: Text('Airline: ${airline?.name ?? 'N/A'}\n'
+                      'Departure: ${departure?.airport ?? 'N/A'}\n'
+                      'Arrival: ${arrival?.airport ?? 'N/A'}/${arrival?.timezone ?? 'N/A'}\n'
+                      'Status: ${flight.flightStatus ?? 'N/A'}'),
+                  trailing:
+                      Text("Flight Number: ${flightNumber?.number ?? 'N/A'}"),
                 );
               },
             );
