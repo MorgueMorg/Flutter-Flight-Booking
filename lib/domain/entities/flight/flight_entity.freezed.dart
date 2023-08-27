@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'flight_model.dart';
+part of 'flight_entity.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,42 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FlightModel _$FlightModelFromJson(Map<String, dynamic> json) {
-  return _FlightModel.fromJson(json);
-}
-
 /// @nodoc
-mixin _$FlightModel {
+mixin _$FlightEntity {
   String? get number => throw _privateConstructorUsedError;
   String? get iata => throw _privateConstructorUsedError;
   String? get icao => throw _privateConstructorUsedError;
-  CodesharedModel? get codeshared => throw _privateConstructorUsedError;
+  CodesharedEntity? get codeshared => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FlightModelCopyWith<FlightModel> get copyWith =>
+  $FlightEntityCopyWith<FlightEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FlightModelCopyWith<$Res> {
-  factory $FlightModelCopyWith(
-          FlightModel value, $Res Function(FlightModel) then) =
-      _$FlightModelCopyWithImpl<$Res, FlightModel>;
+abstract class $FlightEntityCopyWith<$Res> {
+  factory $FlightEntityCopyWith(
+          FlightEntity value, $Res Function(FlightEntity) then) =
+      _$FlightEntityCopyWithImpl<$Res, FlightEntity>;
   @useResult
   $Res call(
       {String? number,
       String? iata,
       String? icao,
-      CodesharedModel? codeshared});
+      CodesharedEntity? codeshared});
 
-  $CodesharedModelCopyWith<$Res>? get codeshared;
+  $CodesharedEntityCopyWith<$Res>? get codeshared;
 }
 
 /// @nodoc
-class _$FlightModelCopyWithImpl<$Res, $Val extends FlightModel>
-    implements $FlightModelCopyWith<$Res> {
-  _$FlightModelCopyWithImpl(this._value, this._then);
+class _$FlightEntityCopyWithImpl<$Res, $Val extends FlightEntity>
+    implements $FlightEntityCopyWith<$Res> {
+  _$FlightEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -80,47 +75,47 @@ class _$FlightModelCopyWithImpl<$Res, $Val extends FlightModel>
       codeshared: freezed == codeshared
           ? _value.codeshared
           : codeshared // ignore: cast_nullable_to_non_nullable
-              as CodesharedModel?,
+              as CodesharedEntity?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CodesharedModelCopyWith<$Res>? get codeshared {
+  $CodesharedEntityCopyWith<$Res>? get codeshared {
     if (_value.codeshared == null) {
       return null;
     }
 
-    return $CodesharedModelCopyWith<$Res>(_value.codeshared!, (value) {
+    return $CodesharedEntityCopyWith<$Res>(_value.codeshared!, (value) {
       return _then(_value.copyWith(codeshared: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_FlightModelCopyWith<$Res>
-    implements $FlightModelCopyWith<$Res> {
-  factory _$$_FlightModelCopyWith(
-          _$_FlightModel value, $Res Function(_$_FlightModel) then) =
-      __$$_FlightModelCopyWithImpl<$Res>;
+abstract class _$$_FlightEntityCopyWith<$Res>
+    implements $FlightEntityCopyWith<$Res> {
+  factory _$$_FlightEntityCopyWith(
+          _$_FlightEntity value, $Res Function(_$_FlightEntity) then) =
+      __$$_FlightEntityCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String? number,
       String? iata,
       String? icao,
-      CodesharedModel? codeshared});
+      CodesharedEntity? codeshared});
 
   @override
-  $CodesharedModelCopyWith<$Res>? get codeshared;
+  $CodesharedEntityCopyWith<$Res>? get codeshared;
 }
 
 /// @nodoc
-class __$$_FlightModelCopyWithImpl<$Res>
-    extends _$FlightModelCopyWithImpl<$Res, _$_FlightModel>
-    implements _$$_FlightModelCopyWith<$Res> {
-  __$$_FlightModelCopyWithImpl(
-      _$_FlightModel _value, $Res Function(_$_FlightModel) _then)
+class __$$_FlightEntityCopyWithImpl<$Res>
+    extends _$FlightEntityCopyWithImpl<$Res, _$_FlightEntity>
+    implements _$$_FlightEntityCopyWith<$Res> {
+  __$$_FlightEntityCopyWithImpl(
+      _$_FlightEntity _value, $Res Function(_$_FlightEntity) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -131,7 +126,7 @@ class __$$_FlightModelCopyWithImpl<$Res>
     Object? icao = freezed,
     Object? codeshared = freezed,
   }) {
-    return _then(_$_FlightModel(
+    return _then(_$_FlightEntity(
       number: freezed == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
@@ -147,23 +142,19 @@ class __$$_FlightModelCopyWithImpl<$Res>
       codeshared: freezed == codeshared
           ? _value.codeshared
           : codeshared // ignore: cast_nullable_to_non_nullable
-              as CodesharedModel?,
+              as CodesharedEntity?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_FlightModel extends _FlightModel {
-  _$_FlightModel(
+
+class _$_FlightEntity implements _FlightEntity {
+  const _$_FlightEntity(
       {required this.number,
       required this.iata,
       required this.icao,
-      required this.codeshared})
-      : super._();
-
-  factory _$_FlightModel.fromJson(Map<String, dynamic> json) =>
-      _$$_FlightModelFromJson(json);
+      required this.codeshared});
 
   @override
   final String? number;
@@ -172,18 +163,18 @@ class _$_FlightModel extends _FlightModel {
   @override
   final String? icao;
   @override
-  final CodesharedModel? codeshared;
+  final CodesharedEntity? codeshared;
 
   @override
   String toString() {
-    return 'FlightModel(number: $number, iata: $iata, icao: $icao, codeshared: $codeshared)';
+    return 'FlightEntity(number: $number, iata: $iata, icao: $icao, codeshared: $codeshared)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FlightModel &&
+            other is _$_FlightEntity &&
             (identical(other.number, number) || other.number == number) &&
             (identical(other.iata, iata) || other.iata == iata) &&
             (identical(other.icao, icao) || other.icao == icao) &&
@@ -191,34 +182,22 @@ class _$_FlightModel extends _FlightModel {
                 other.codeshared == codeshared));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, number, iata, icao, codeshared);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FlightModelCopyWith<_$_FlightModel> get copyWith =>
-      __$$_FlightModelCopyWithImpl<_$_FlightModel>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_FlightModelToJson(
-      this,
-    );
-  }
+  _$$_FlightEntityCopyWith<_$_FlightEntity> get copyWith =>
+      __$$_FlightEntityCopyWithImpl<_$_FlightEntity>(this, _$identity);
 }
 
-abstract class _FlightModel extends FlightModel {
-  factory _FlightModel(
+abstract class _FlightEntity implements FlightEntity {
+  const factory _FlightEntity(
       {required final String? number,
       required final String? iata,
       required final String? icao,
-      required final CodesharedModel? codeshared}) = _$_FlightModel;
-  _FlightModel._() : super._();
-
-  factory _FlightModel.fromJson(Map<String, dynamic> json) =
-      _$_FlightModel.fromJson;
+      required final CodesharedEntity? codeshared}) = _$_FlightEntity;
 
   @override
   String? get number;
@@ -227,9 +206,9 @@ abstract class _FlightModel extends FlightModel {
   @override
   String? get icao;
   @override
-  CodesharedModel? get codeshared;
+  CodesharedEntity? get codeshared;
   @override
   @JsonKey(ignore: true)
-  _$$_FlightModelCopyWith<_$_FlightModel> get copyWith =>
+  _$$_FlightEntityCopyWith<_$_FlightEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }

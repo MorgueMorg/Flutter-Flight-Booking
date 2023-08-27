@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mobyte_flight/bloc/flight_bloc.dart';
 import 'package:mobyte_flight/common/router/go_router.dart';
-import 'package:mobyte_flight/data/repositories/flight_repository.dart';
+import 'package:mobyte_flight/domain/repositories/flight_repository.dart';
+import 'package:mobyte_flight/presentation/bloc/flight_bloc.dart';
+import 'package:mobyte_flight/data/repositories/flight_repository_impl.dart';
+import 'package:mobyte_flight/data/datasources/remote_data_source.dart';
 
 void main() => runZonedGuarded<void>(
       () => runApp(const MobyteFlightApp()),
@@ -18,14 +20,13 @@ class MobyteFlightApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<FlightBloc>(
-          create: (context) => FlightBloc(
-            FlightRepository(),
-          ),
-        ),
-      ],
+    final FlightDataSource dataSource =
+        FlightDataSource(); 
+    final FlightRepository repository =
+        FlightRepositoryImpl(dataSource); 
+
+    return BlocProvider(
+      create: (context) => FlightBloc(repository),
       child: MaterialApp.router(
         routerConfig: router,
       ),

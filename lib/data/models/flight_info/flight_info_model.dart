@@ -18,8 +18,6 @@ class FlightInfoModel with _$FlightInfoModel {
     required ArrivalModel? arrival,
     required AirlineModel? airline,
     required FlightModel? flight,
-    required String? aircraft,
-    required String? live,
   }) = _FlightInfoModel;
 
   factory FlightInfoModel.fromJson(Map<String, dynamic> json) =>

@@ -1,4 +1,4 @@
-package com.example.mobyte_flight
+package com.example.interim
 
 import io.flutter.embedding.android.FlutterActivity
 

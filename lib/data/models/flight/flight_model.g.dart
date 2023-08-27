@@ -11,7 +11,10 @@ _$_FlightModel _$$_FlightModelFromJson(Map<String, dynamic> json) =>
       number: json['number'] as String?,
       iata: json['iata'] as String?,
       icao: json['icao'] as String?,
-      codeshared: json['codeshared'] as String?,
+      codeshared: json['codeshared'] == null
+          ? null
+          : CodesharedModel.fromJson(
+              json['codeshared'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_FlightModelToJson(_$_FlightModel instance) =>

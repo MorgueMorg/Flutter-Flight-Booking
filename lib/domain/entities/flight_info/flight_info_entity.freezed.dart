@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'flight_info_model.dart';
+part of 'flight_info_entity.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,49 +14,44 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FlightInfoModel _$FlightInfoModelFromJson(Map<String, dynamic> json) {
-  return _FlightInfoModel.fromJson(json);
-}
-
 /// @nodoc
-mixin _$FlightInfoModel {
+mixin _$FlightInfoEntity {
   String? get flightDate => throw _privateConstructorUsedError;
   String? get flightStatus => throw _privateConstructorUsedError;
-  DepartureModel? get departure => throw _privateConstructorUsedError;
-  ArrivalModel? get arrival => throw _privateConstructorUsedError;
-  AirlineModel? get airline => throw _privateConstructorUsedError;
-  FlightModel? get flight => throw _privateConstructorUsedError;
+  DepartureEntity? get departure => throw _privateConstructorUsedError;
+  ArrivalEntity? get arrival => throw _privateConstructorUsedError;
+  AirlineEntity? get airline => throw _privateConstructorUsedError;
+  FlightEntity? get flight => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FlightInfoModelCopyWith<FlightInfoModel> get copyWith =>
+  $FlightInfoEntityCopyWith<FlightInfoEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FlightInfoModelCopyWith<$Res> {
-  factory $FlightInfoModelCopyWith(
-          FlightInfoModel value, $Res Function(FlightInfoModel) then) =
-      _$FlightInfoModelCopyWithImpl<$Res, FlightInfoModel>;
+abstract class $FlightInfoEntityCopyWith<$Res> {
+  factory $FlightInfoEntityCopyWith(
+          FlightInfoEntity value, $Res Function(FlightInfoEntity) then) =
+      _$FlightInfoEntityCopyWithImpl<$Res, FlightInfoEntity>;
   @useResult
   $Res call(
       {String? flightDate,
       String? flightStatus,
-      DepartureModel? departure,
-      ArrivalModel? arrival,
-      AirlineModel? airline,
-      FlightModel? flight});
+      DepartureEntity? departure,
+      ArrivalEntity? arrival,
+      AirlineEntity? airline,
+      FlightEntity? flight});
 
-  $DepartureModelCopyWith<$Res>? get departure;
-  $ArrivalModelCopyWith<$Res>? get arrival;
-  $AirlineModelCopyWith<$Res>? get airline;
-  $FlightModelCopyWith<$Res>? get flight;
+  $DepartureEntityCopyWith<$Res>? get departure;
+  $ArrivalEntityCopyWith<$Res>? get arrival;
+  $AirlineEntityCopyWith<$Res>? get airline;
+  $FlightEntityCopyWith<$Res>? get flight;
 }
 
 /// @nodoc
-class _$FlightInfoModelCopyWithImpl<$Res, $Val extends FlightInfoModel>
-    implements $FlightInfoModelCopyWith<$Res> {
-  _$FlightInfoModelCopyWithImpl(this._value, this._then);
+class _$FlightInfoEntityCopyWithImpl<$Res, $Val extends FlightInfoEntity>
+    implements $FlightInfoEntityCopyWith<$Res> {
+  _$FlightInfoEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -85,103 +80,103 @@ class _$FlightInfoModelCopyWithImpl<$Res, $Val extends FlightInfoModel>
       departure: freezed == departure
           ? _value.departure
           : departure // ignore: cast_nullable_to_non_nullable
-              as DepartureModel?,
+              as DepartureEntity?,
       arrival: freezed == arrival
           ? _value.arrival
           : arrival // ignore: cast_nullable_to_non_nullable
-              as ArrivalModel?,
+              as ArrivalEntity?,
       airline: freezed == airline
           ? _value.airline
           : airline // ignore: cast_nullable_to_non_nullable
-              as AirlineModel?,
+              as AirlineEntity?,
       flight: freezed == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
-              as FlightModel?,
+              as FlightEntity?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $DepartureModelCopyWith<$Res>? get departure {
+  $DepartureEntityCopyWith<$Res>? get departure {
     if (_value.departure == null) {
       return null;
     }
 
-    return $DepartureModelCopyWith<$Res>(_value.departure!, (value) {
+    return $DepartureEntityCopyWith<$Res>(_value.departure!, (value) {
       return _then(_value.copyWith(departure: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ArrivalModelCopyWith<$Res>? get arrival {
+  $ArrivalEntityCopyWith<$Res>? get arrival {
     if (_value.arrival == null) {
       return null;
     }
 
-    return $ArrivalModelCopyWith<$Res>(_value.arrival!, (value) {
+    return $ArrivalEntityCopyWith<$Res>(_value.arrival!, (value) {
       return _then(_value.copyWith(arrival: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $AirlineModelCopyWith<$Res>? get airline {
+  $AirlineEntityCopyWith<$Res>? get airline {
     if (_value.airline == null) {
       return null;
     }
 
-    return $AirlineModelCopyWith<$Res>(_value.airline!, (value) {
+    return $AirlineEntityCopyWith<$Res>(_value.airline!, (value) {
       return _then(_value.copyWith(airline: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FlightModelCopyWith<$Res>? get flight {
+  $FlightEntityCopyWith<$Res>? get flight {
     if (_value.flight == null) {
       return null;
     }
 
-    return $FlightModelCopyWith<$Res>(_value.flight!, (value) {
+    return $FlightEntityCopyWith<$Res>(_value.flight!, (value) {
       return _then(_value.copyWith(flight: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_FlightInfoModelCopyWith<$Res>
-    implements $FlightInfoModelCopyWith<$Res> {
-  factory _$$_FlightInfoModelCopyWith(
-          _$_FlightInfoModel value, $Res Function(_$_FlightInfoModel) then) =
-      __$$_FlightInfoModelCopyWithImpl<$Res>;
+abstract class _$$_FlightInfoEntityCopyWith<$Res>
+    implements $FlightInfoEntityCopyWith<$Res> {
+  factory _$$_FlightInfoEntityCopyWith(
+          _$_FlightInfoEntity value, $Res Function(_$_FlightInfoEntity) then) =
+      __$$_FlightInfoEntityCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String? flightDate,
       String? flightStatus,
-      DepartureModel? departure,
-      ArrivalModel? arrival,
-      AirlineModel? airline,
-      FlightModel? flight});
+      DepartureEntity? departure,
+      ArrivalEntity? arrival,
+      AirlineEntity? airline,
+      FlightEntity? flight});
 
   @override
-  $DepartureModelCopyWith<$Res>? get departure;
+  $DepartureEntityCopyWith<$Res>? get departure;
   @override
-  $ArrivalModelCopyWith<$Res>? get arrival;
+  $ArrivalEntityCopyWith<$Res>? get arrival;
   @override
-  $AirlineModelCopyWith<$Res>? get airline;
+  $AirlineEntityCopyWith<$Res>? get airline;
   @override
-  $FlightModelCopyWith<$Res>? get flight;
+  $FlightEntityCopyWith<$Res>? get flight;
 }
 
 /// @nodoc
-class __$$_FlightInfoModelCopyWithImpl<$Res>
-    extends _$FlightInfoModelCopyWithImpl<$Res, _$_FlightInfoModel>
-    implements _$$_FlightInfoModelCopyWith<$Res> {
-  __$$_FlightInfoModelCopyWithImpl(
-      _$_FlightInfoModel _value, $Res Function(_$_FlightInfoModel) _then)
+class __$$_FlightInfoEntityCopyWithImpl<$Res>
+    extends _$FlightInfoEntityCopyWithImpl<$Res, _$_FlightInfoEntity>
+    implements _$$_FlightInfoEntityCopyWith<$Res> {
+  __$$_FlightInfoEntityCopyWithImpl(
+      _$_FlightInfoEntity _value, $Res Function(_$_FlightInfoEntity) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -194,7 +189,7 @@ class __$$_FlightInfoModelCopyWithImpl<$Res>
     Object? airline = freezed,
     Object? flight = freezed,
   }) {
-    return _then(_$_FlightInfoModel(
+    return _then(_$_FlightInfoEntity(
       flightDate: freezed == flightDate
           ? _value.flightDate
           : flightDate // ignore: cast_nullable_to_non_nullable
@@ -206,61 +201,57 @@ class __$$_FlightInfoModelCopyWithImpl<$Res>
       departure: freezed == departure
           ? _value.departure
           : departure // ignore: cast_nullable_to_non_nullable
-              as DepartureModel?,
+              as DepartureEntity?,
       arrival: freezed == arrival
           ? _value.arrival
           : arrival // ignore: cast_nullable_to_non_nullable
-              as ArrivalModel?,
+              as ArrivalEntity?,
       airline: freezed == airline
           ? _value.airline
           : airline // ignore: cast_nullable_to_non_nullable
-              as AirlineModel?,
+              as AirlineEntity?,
       flight: freezed == flight
           ? _value.flight
           : flight // ignore: cast_nullable_to_non_nullable
-              as FlightModel?,
+              as FlightEntity?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_FlightInfoModel extends _FlightInfoModel {
-  _$_FlightInfoModel(
+
+class _$_FlightInfoEntity implements _FlightInfoEntity {
+  const _$_FlightInfoEntity(
       {required this.flightDate,
       required this.flightStatus,
       required this.departure,
       required this.arrival,
       required this.airline,
-      required this.flight})
-      : super._();
-
-  factory _$_FlightInfoModel.fromJson(Map<String, dynamic> json) =>
-      _$$_FlightInfoModelFromJson(json);
+      required this.flight});
 
   @override
   final String? flightDate;
   @override
   final String? flightStatus;
   @override
-  final DepartureModel? departure;
+  final DepartureEntity? departure;
   @override
-  final ArrivalModel? arrival;
+  final ArrivalEntity? arrival;
   @override
-  final AirlineModel? airline;
+  final AirlineEntity? airline;
   @override
-  final FlightModel? flight;
+  final FlightEntity? flight;
 
   @override
   String toString() {
-    return 'FlightInfoModel(flightDate: $flightDate, flightStatus: $flightStatus, departure: $departure, arrival: $arrival, airline: $airline, flight: $flight)';
+    return 'FlightInfoEntity(flightDate: $flightDate, flightStatus: $flightStatus, departure: $departure, arrival: $arrival, airline: $airline, flight: $flight)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FlightInfoModel &&
+            other is _$_FlightInfoEntity &&
             (identical(other.flightDate, flightDate) ||
                 other.flightDate == flightDate) &&
             (identical(other.flightStatus, flightStatus) ||
@@ -272,7 +263,6 @@ class _$_FlightInfoModel extends _FlightInfoModel {
             (identical(other.flight, flight) || other.flight == flight));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, flightDate, flightStatus,
       departure, arrival, airline, flight);
@@ -280,44 +270,33 @@ class _$_FlightInfoModel extends _FlightInfoModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FlightInfoModelCopyWith<_$_FlightInfoModel> get copyWith =>
-      __$$_FlightInfoModelCopyWithImpl<_$_FlightInfoModel>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_FlightInfoModelToJson(
-      this,
-    );
-  }
+  _$$_FlightInfoEntityCopyWith<_$_FlightInfoEntity> get copyWith =>
+      __$$_FlightInfoEntityCopyWithImpl<_$_FlightInfoEntity>(this, _$identity);
 }
 
-abstract class _FlightInfoModel extends FlightInfoModel {
-  factory _FlightInfoModel(
+abstract class _FlightInfoEntity implements FlightInfoEntity {
+  const factory _FlightInfoEntity(
       {required final String? flightDate,
       required final String? flightStatus,
-      required final DepartureModel? departure,
-      required final ArrivalModel? arrival,
-      required final AirlineModel? airline,
-      required final FlightModel? flight}) = _$_FlightInfoModel;
-  _FlightInfoModel._() : super._();
-
-  factory _FlightInfoModel.fromJson(Map<String, dynamic> json) =
-      _$_FlightInfoModel.fromJson;
+      required final DepartureEntity? departure,
+      required final ArrivalEntity? arrival,
+      required final AirlineEntity? airline,
+      required final FlightEntity? flight}) = _$_FlightInfoEntity;
 
   @override
   String? get flightDate;
   @override
   String? get flightStatus;
   @override
-  DepartureModel? get departure;
+  DepartureEntity? get departure;
   @override
-  ArrivalModel? get arrival;
+  ArrivalEntity? get arrival;
   @override
-  AirlineModel? get airline;
+  AirlineEntity? get airline;
   @override
-  FlightModel? get flight;
+  FlightEntity? get flight;
   @override
   @JsonKey(ignore: true)
-  _$$_FlightInfoModelCopyWith<_$_FlightInfoModel> get copyWith =>
+  _$$_FlightInfoEntityCopyWith<_$_FlightInfoEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
