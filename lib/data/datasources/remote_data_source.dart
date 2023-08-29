@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:mobyte_flight/common/utils/constants.dart';
 import 'package:mobyte_flight/data/models/flight_info/flight_info_model.dart';
 
 class FlightDataSource {
@@ -7,7 +8,7 @@ class FlightDataSource {
   Future<List<FlightInfoModel>> fetchFlights() async {
     try {
       final response = await _dio.get(
-        'http://api.aviationstack.com/v1/flights?access_key=0c6f621f57c5d3e34d78da2744c294de&limit=15',
+        Constants.apiUrl,
       );
 
       final flightData = response.data['data'] as List<dynamic>;

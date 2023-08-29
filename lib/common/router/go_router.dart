@@ -8,7 +8,7 @@ final GoRouter router = GoRouter(
       name: 'main',
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return MainScreen();
+        return const MainScreen();
       },
     )
   ],
