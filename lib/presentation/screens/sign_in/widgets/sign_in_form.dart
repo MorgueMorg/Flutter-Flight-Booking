@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/common/utils/constants.dart';
 import 'package:mobyte_flight/presentation/widgets/default_button.dart';
 import 'package:mobyte_flight/presentation/widgets/form_error.dart';
@@ -39,9 +41,28 @@ class _SignFormState extends State<SignInForm> {
     return Form(
       key: _formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const Text(
+            "Email Address",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(height: 5.h),
           _buildEmailFormField(),
           SizedBox(height: 30.h),
+          const Text(
+            "Password",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(height: 5.h),
           _buildPasswordFormField(),
           SizedBox(height: 30.h),
           Row(
@@ -66,19 +87,26 @@ class _SignFormState extends State<SignInForm> {
               ),
             ],
           ),
+          SizedBox(height: 20.h),
           FormError(
             errors: errors,
           ),
           SizedBox(height: 20.h),
           DefaultButton(
             text: "Login",
-            press: () {},
+            press: () {
+              if (_formKey.currentState!.validate()) {
+                context.go("/main");
+              }
+            },
             color: Colors.red,
-            height: 60,
-            weight: 400,
+            height: 55.h,
+            width: 400.w,
           ),
           SizedBox(height: 20.h),
           const _SignDivider(),
+          SizedBox(height: 20.h),
+          const _GoogleCustomButton(),
         ],
       ),
     );
@@ -107,12 +135,10 @@ class _SignFormState extends State<SignInForm> {
         return null;
       },
       decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r)),
-        labelText: "Password",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+        ),
         hintText: "Enter your password",
-        // floatingLabelBehavior: FloatingLabelBehavior.always,
-        // TODO
-        // suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
     );
   }
@@ -124,16 +150,15 @@ class _SignFormState extends State<SignInForm> {
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: Constants.kEmailNullError);
-        } else if (Constants.emailValidatorRegExp.hasMatch(value)) {
+        } else if (!emailValidatorRegExp.hasMatch(value)) {
           removeError(error: Constants.kInvalidEmailError);
         }
-        return;
       },
       validator: (value) {
         if (value!.isEmpty) {
           addError(error: Constants.kEmailNullError);
           return "";
-        } else if (Constants.emailValidatorRegExp.hasMatch(value)) {
+        } else if (!emailValidatorRegExp.hasMatch(value)) {
           addError(error: Constants.kInvalidEmailError);
           return "";
         }
@@ -143,10 +168,44 @@ class _SignFormState extends State<SignInForm> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
         ),
-        labelText: "Email Address",
         hintText: "Enter your email",
-        // floatingLabelBehavior: FloatingLabelBehavior.always,
-        // suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+      ),
+    );
+  }
+}
+
+class _GoogleCustomButton extends StatelessWidget {
+  const _GoogleCustomButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 55.h,
+      width: 400.w,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+          backgroundColor: Colors.grey.shade400,
+        ),
+        onPressed: () {},
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset("assets/icons/Google.svg"),
+            SizedBox(width: 15.w),
+            Text(
+              "Continue with Google",
+              maxLines: 1,
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: Colors.grey.shade800,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

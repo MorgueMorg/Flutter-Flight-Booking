@@ -4,8 +4,6 @@ abstract class Constants {
   // "http://api.aviationstack.com/v1/flights?access_key=0c6f621f57c5d3e34d78da2744c294de&limit=15";
 
   // Form Errors
-  static RegExp emailValidatorRegExp =
-      RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
   static String kEmailNullError = "Please Enter your email";
   static String kInvalidEmailError = "Please Enter Valid Email";
   static String kPassNullError = "Please Enter your password";
@@ -15,3 +13,7 @@ abstract class Constants {
   static String kPhoneNumberNullError = "Please Enter your phone number";
   static String kAddressNullError = "Please Enter your address";
 }
+
+// RegExp
+final RegExp emailValidatorRegExp =
+    RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");

@@ -6,14 +6,14 @@ class DefaultButton extends StatelessWidget {
   final Color color;
   final Function? press;
   final double height;
-  final double weight;
+  final double width;
 
   const DefaultButton({
     super.key,
     required this.text,
     required this.color,
     required this.height,
-    required this.weight,
+    required this.width,
     this.press,
   });
 
@@ -21,7 +21,7 @@ class DefaultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: height,
-      width: weight,
+      width: width,
       child: TextButton(
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(

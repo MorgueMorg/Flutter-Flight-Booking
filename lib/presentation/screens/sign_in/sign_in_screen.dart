@@ -15,9 +15,10 @@ class SignInScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: 20.w,
             ),
-            child: Column(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 30.h),
                   Text(
                     "Welcome back",
                     style: TextStyle(
@@ -26,18 +27,28 @@ class SignInScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 5.h),
+                  SizedBox(height: 15.h),
                   const Text(
                     "Sign in with your email and password  \nor continue with social media",
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 30.h),
                   const SignInForm(),
+                  SizedBox(height: 30.h),
+                  Text(
+                    "Create an account",
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.r,
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
         ),
+      ),
     );
   }
 }
