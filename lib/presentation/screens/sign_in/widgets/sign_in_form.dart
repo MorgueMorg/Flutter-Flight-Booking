@@ -96,7 +96,7 @@ class _SignFormState extends State<SignInForm> {
             text: "Login",
             press: () {
               if (_formKey.currentState!.validate()) {
-                context.go("/main");
+                context.go("/login_success");
               }
             },
             color: Colors.red,
