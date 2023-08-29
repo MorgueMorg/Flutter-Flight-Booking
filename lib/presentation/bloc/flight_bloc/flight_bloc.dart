@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobyte_flight/domain/repositories/flight_repository.dart';
-import 'package:mobyte_flight/presentation/bloc/flight_event.dart';
-import 'package:mobyte_flight/presentation/bloc/flight_state.dart';
+import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_event.dart';
+import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_state.dart';
 
 class FlightBloc extends Bloc<FlightEvent, FlightState> {
   final FlightRepository repository;

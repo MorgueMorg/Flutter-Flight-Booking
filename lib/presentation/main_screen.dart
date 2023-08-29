@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mobyte_flight/presentation/bloc/flight_bloc.dart';
-import 'package:mobyte_flight/presentation/bloc/flight_event.dart';
-import 'package:mobyte_flight/presentation/bloc/flight_state.dart';
+import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_bloc.dart';
+import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_event.dart';
+import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_state.dart';
 
 class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flight Info'),
+        title: const Text('Flight Info'),
       ),
       body: BlocBuilder<FlightBloc, FlightState>(
         builder: (context, state) {
           return state.maybeWhen(
-            orElse: () => Center(
+            orElse: () => const Center(
               child: Text('Something went wrong.'),
             ),
-            loading: () => Center(
+            loading: () => const Center(
               child: CircularProgressIndicator(),
             ),
             loaded: (flights) {
               if (flights.isEmpty) {
-                return Center(
+                return const Center(
                   child: Text('No flights available.'),
                 );
               }
@@ -31,7 +33,7 @@ class MainScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final flight = flights[index];
                   return ListTile(
-                    title: Text('Flight: ${flight.flightDate}'),
+                    title: Text('Flight: ${flight.arrival?.airport}'),
                     subtitle: Text('Status: ${flight.flightStatus}'),
                   );
                 },
@@ -47,7 +49,7 @@ class MainScreen extends StatelessWidget {
         onPressed: () {
           context.read<FlightBloc>().add(const FetchFlightEvent());
         },
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
       ),
     );
   }
