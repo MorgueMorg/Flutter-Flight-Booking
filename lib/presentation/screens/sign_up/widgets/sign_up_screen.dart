@@ -7,18 +7,18 @@ import 'package:mobyte_flight/presentation/widgets/form_error.dart';
 import 'package:mobyte_flight/presentation/widgets/google_custom_button.dart';
 import 'package:mobyte_flight/presentation/widgets/sign_divider.dart';
 
-class SignInForm extends StatefulWidget {
-  const SignInForm({super.key});
+class SignUpForm extends StatefulWidget {
+  const SignUpForm({super.key});
 
   @override
-  State<SignInForm> createState() => _SignFormState();
+  State<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _SignFormState extends State<SignInForm> {
+class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
-  bool? remember = false;
+  String? conformPassword;
   final List<String?> errors = [];
 
   void addError({String? error}) {
@@ -53,7 +53,7 @@ class _SignFormState extends State<SignInForm> {
             ),
           ),
           SizedBox(height: 5.h),
-          _buildEmailFormField(),
+          buildEmailFormField(),
           SizedBox(height: 30.h),
           const Text(
             "Password",
@@ -64,40 +64,25 @@ class _SignFormState extends State<SignInForm> {
             ),
           ),
           SizedBox(height: 5.h),
-          _buildPasswordFormField(),
+          buildPasswordFormField(),
           SizedBox(height: 30.h),
-          Row(
-            children: [
-              Checkbox(
-                value: remember,
-                activeColor: Colors.red,
-                onChanged: (value) {
-                  setState(() {
-                    remember = value;
-                  });
-                },
-              ),
-              const Text("Remember me"),
-              const Spacer(),
-              GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  "Forgot Password",
-                  style: TextStyle(decoration: TextDecoration.underline),
-                ),
-              ),
-            ],
+          const Text(
+            "Confirm Password",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
           ),
-          SizedBox(height: 20.h),
-          FormError(
-            errors: errors,
-          ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 5.h),
+          buildConfirmPasswordFormField(),
+          FormError(errors: errors),
+          SizedBox(height: 40.h),
           DefaultButton(
-            text: "Login",
+            text: "Sign Up",
             press: () {
               if (_formKey.currentState!.validate()) {
-                context.go("/login_success");
+                context.push("/sign_in");
               }
             },
             color: Colors.red,
@@ -106,7 +91,7 @@ class _SignFormState extends State<SignInForm> {
           ),
           SizedBox(height: 20.h),
           const SignDivider(
-            text: "or sign in with",
+            text: "or",
           ),
           SizedBox(height: 20.h),
           const GoogleCustomButton(),
@@ -115,7 +100,42 @@ class _SignFormState extends State<SignInForm> {
     );
   }
 
-  TextFormField _buildPasswordFormField() {
+  TextFormField buildConfirmPasswordFormField() {
+    return TextFormField(
+      obscureText: true,
+      onSaved: (newValue) => conformPassword = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: Constants.kPassNullError);
+        } else if (value.isNotEmpty && password == conformPassword) {
+          removeError(error: Constants.kMatchPassError);
+        }
+        conformPassword = value;
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: Constants.kPassNullError);
+          return "";
+        } else if ((password != value)) {
+          addError(error: Constants.kMatchPassError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: const BorderSide(color: Colors.red),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+        hintText: "Confirm your password",
+      ),
+    );
+  }
+
+  TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
       onSaved: (newValue) => password = newValue,
@@ -125,6 +145,7 @@ class _SignFormState extends State<SignInForm> {
         } else if (value.length >= 8) {
           removeError(error: Constants.kShortPassError);
         }
+        password = value;
         return;
       },
       validator: (value) {
@@ -150,16 +171,17 @@ class _SignFormState extends State<SignInForm> {
     );
   }
 
-  TextFormField _buildEmailFormField() {
+  TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: Constants.kEmailNullError);
-        } else if (!emailValidatorRegExp.hasMatch(value)) {
+        } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: Constants.kInvalidEmailError);
         }
+        return;
       },
       validator: (value) {
         if (value!.isEmpty) {

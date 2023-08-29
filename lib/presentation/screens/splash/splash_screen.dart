@@ -14,10 +14,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _navigateToMarketsScreen();
+    _navigateToSignInScreen();
   }
 
-  _navigateToMarketsScreen() async {
+  _navigateToSignInScreen() async {
     await Future.delayed(
       const Duration(milliseconds: 1500),
       () {

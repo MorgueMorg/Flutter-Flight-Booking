@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/presentation/screens/sign_in/widgets/sign_in_form.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -35,14 +36,19 @@ class SignInScreen extends StatelessWidget {
                   SizedBox(height: 30.h),
                   const SignInForm(),
                   SizedBox(height: 30.h),
-                  Text(
-                    "Create an account",
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.r,
+                  GestureDetector(
+                    onTap: () {
+                      context.push("/sign_up");
+                    },
+                    child: Text(
+                      "Create an account",
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.r,
+                      ),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
