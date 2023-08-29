@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobyte_flight/presentation/main_screen.dart';
+import 'package:mobyte_flight/presentation/screens/home/main_screen.dart';
 
 final GoRouter router = GoRouter(
   routes: <RouteBase>[
