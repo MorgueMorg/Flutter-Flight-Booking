@@ -135,6 +135,10 @@ class _SignFormState extends State<SignInForm> {
         return null;
       },
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: const BorderSide(color: Colors.red),
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
         ),
@@ -165,6 +169,10 @@ class _SignFormState extends State<SignInForm> {
         return null;
       },
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: const BorderSide(color: Colors.red),
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
         ),
