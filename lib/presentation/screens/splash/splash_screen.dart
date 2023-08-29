@@ -18,7 +18,6 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _navigateToMarketsScreen() async {
-    // Future.delayed для задержки. После сплэша нас перекидывает на экран markets
     await Future.delayed(
       const Duration(milliseconds: 1500),
       () {
@@ -32,22 +31,20 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
-        child: Expanded(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset("assets/icons/airplane.svg"),
-                SizedBox(height: 10.h),
-                const Text(
-                  "Mobyte Flight",
-                  style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ],
-            ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset("assets/icons/airplane.svg"),
+              SizedBox(height: 10.h),
+              const Text(
+                "Mobyte Flight",
+                style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+            ],
           ),
         ),
       ),
