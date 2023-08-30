@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobyte_flight/presentation/screens/sign_up/widgets/sign_up_screen.dart';
+import 'package:mobyte_flight/presentation/screens/sign_up/widgets/sign_up_form.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -50,7 +50,7 @@ class SignUpScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "Alreary have an account?",
+                        "Already have an account?",
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 16.r,
@@ -71,6 +71,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 30.h),
                 ],
               ),
             ),

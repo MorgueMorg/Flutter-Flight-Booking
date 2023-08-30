@@ -1,7 +1,6 @@
 abstract class Constants {
   static String apiUrl = "";
-  // static String apiUrl =
-  // "http://api.aviationstack.com/v1/flights?access_key=0c6f621f57c5d3e34d78da2744c294de&limit=15";
+  // static String apiUrl = "http://api.aviationstack.com/v1/flights?access_key=0c6f621f57c5d3e34d78da2744c294de&limit=15";
 
   // Form Errors
   static String kEmailNullError = "Please Enter your email";
@@ -12,6 +11,8 @@ abstract class Constants {
   static String kNamelNullError = "Please Enter your name";
   static String kPhoneNumberNullError = "Please Enter your phone number";
   static String kAddressNullError = "Please Enter your address";
+  static String kWeakPasswordError = "The password is too weak";
+  static String kEmailAlreadyUsedError = "The email is already used";
 }
 
 // RegExp

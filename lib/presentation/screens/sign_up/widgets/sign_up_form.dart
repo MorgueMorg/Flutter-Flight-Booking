@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/common/utils/constants.dart';
+import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
+import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_event.dart';
 import 'package:mobyte_flight/presentation/widgets/default_button.dart';
 import 'package:mobyte_flight/presentation/widgets/form_error.dart';
 import 'package:mobyte_flight/presentation/widgets/google_custom_button.dart';
@@ -18,8 +21,16 @@ class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
-  String? conformPassword;
+  String? confirmPassword;
   final List<String?> errors = [];
+
+  late AuthBloc _authBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _authBloc = context.read<AuthBloc>();
+  }
 
   void addError({String? error}) {
     if (!errors.contains(error)) {
@@ -44,10 +55,10 @@ class _SignUpFormState extends State<SignUpForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Email Address",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
@@ -55,10 +66,10 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: 5.h),
           buildEmailFormField(),
           SizedBox(height: 30.h),
-          const Text(
+          Text(
             "Password",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
@@ -66,10 +77,10 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: 5.h),
           buildPasswordFormField(),
           SizedBox(height: 30.h),
-          const Text(
+          Text(
             "Confirm Password",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
@@ -82,7 +93,14 @@ class _SignUpFormState extends State<SignUpForm> {
             text: "Sign Up",
             press: () {
               if (_formKey.currentState!.validate()) {
-                context.push("/sign_in");
+                _formKey.currentState!.save();
+
+                if (email != null && password != null) {
+                  _authBloc.add(
+                    SignUpEvent(email!, password!),
+                  );
+                  context.go("/login_success");
+                }
               }
             },
             color: Colors.red,
@@ -103,14 +121,14 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildConfirmPasswordFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => conformPassword = newValue,
+      onSaved: (newValue) => confirmPassword = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: Constants.kPassNullError);
-        } else if (value.isNotEmpty && password == conformPassword) {
+        } else if (value.isNotEmpty && password == confirmPassword) {
           removeError(error: Constants.kMatchPassError);
         }
-        conformPassword = value;
+        confirmPassword = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -124,11 +142,11 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.r),
+          borderRadius: BorderRadius.circular(15),
           borderSide: const BorderSide(color: Colors.red),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.r),
+          borderRadius: BorderRadius.circular(10),
         ),
         hintText: "Confirm your password",
       ),
@@ -160,11 +178,11 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.r),
+          borderRadius: BorderRadius.circular(15),
           borderSide: const BorderSide(color: Colors.red),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.r),
+          borderRadius: BorderRadius.circular(10),
         ),
         hintText: "Enter your password",
       ),
@@ -195,11 +213,11 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.r),
+          borderRadius: BorderRadius.circular(15),
           borderSide: const BorderSide(color: Colors.red),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.r),
+          borderRadius: BorderRadius.circular(10),
         ),
         hintText: "Enter your email",
         floatingLabelBehavior: FloatingLabelBehavior.always,
