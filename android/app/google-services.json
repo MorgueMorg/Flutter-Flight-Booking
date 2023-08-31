@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "457917083523",
+    "project_id": "mobyte-flight",
+    "storage_bucket": "mobyte-flight.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457917083523:android:e1b7051bad8cf450ced0b6",
+        "android_client_info": {
+          "package_name": "com.example.interim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457917083523-psv820hi12ltl8avqnho244htbn4jjnc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGxIrb3rsjFnMWrzUhZNc7oP6G-o_2iGA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457917083523-psv820hi12ltl8avqnho244htbn4jjnc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "457917083523-00fsrs7l1388sgr7cra9fm1alrveqqgn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobyteFlight.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
