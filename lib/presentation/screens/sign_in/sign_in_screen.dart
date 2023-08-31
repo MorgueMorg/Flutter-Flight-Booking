@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:mobyte_flight/presentation/screens/sign_in/widgets/sign_in_form.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -8,6 +10,7 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authBloc = context.read<AuthBloc>();
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
@@ -34,7 +37,9 @@ class SignInScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 30.h),
-                  const SignInForm(),
+                  SignInForm(
+                    authBloc: authBloc,
+                  ),
                   SizedBox(height: 30.h),
                   GestureDetector(
                     onTap: () {

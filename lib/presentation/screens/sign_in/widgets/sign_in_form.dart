@@ -12,7 +12,9 @@ import 'package:mobyte_flight/presentation/widgets/google_custom_button.dart';
 import 'package:mobyte_flight/presentation/widgets/sign_divider.dart';
 
 class SignInForm extends StatefulWidget {
-  const SignInForm({super.key});
+  final AuthBloc authBloc;
+
+  const SignInForm({super.key, required this.authBloc});
 
   @override
   State<SignInForm> createState() => _SignFormState();
@@ -136,30 +138,14 @@ class _SignFormState extends State<SignInForm> {
               );
             },
           ),
-
-          // DefaultButton(
-          //   text: "Login",
-          //   press: () {
-          //     if (_formKey.currentState!.validate()) {
-          //       _formKey.currentState!.save();
-
-          //       if (email != null && password != null) {
-          //         _authBloc.add(
-          //           SignInEvent(email!, password!),
-          //         );
-          //       }
-          //     }
-          //   },
-          //   color: Colors.red,
-          //   height: 55.h,
-          //   width: 400.w,
-          // ),
           SizedBox(height: 20.h),
           const SignDivider(
             text: "or sign in with",
           ),
           SizedBox(height: 20.h),
-          const GoogleCustomButton(),
+          GoogleCustomButton(
+            authBloc: widget.authBloc,
+          ),
         ],
       ),
     );

@@ -15,19 +15,19 @@ import 'package:mobyte_flight/firebase_options.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_bloc.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
-  runZonedGuarded<void>(
-    () => runApp(const MobyteFlightApp()),
-    (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
-    },
-  );
-}
+void main() => runZonedGuarded(
+      () async {
+        WidgetsFlutterBinding.ensureInitialized();
+        // Firebase initialization
+        await Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform,
+        );
+        runApp(const MobyteFlightApp());
+      },
+      (error, stackTrace) {
+        log(error.toString(), stackTrace: stackTrace);
+      },
+    );
 
 class MobyteFlightApp extends StatelessWidget {
   const MobyteFlightApp({super.key});

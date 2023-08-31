@@ -11,7 +11,9 @@ import 'package:mobyte_flight/presentation/widgets/google_custom_button.dart';
 import 'package:mobyte_flight/presentation/widgets/sign_divider.dart';
 
 class SignUpForm extends StatefulWidget {
-  const SignUpForm({super.key});
+  final AuthBloc authBloc;
+
+  const SignUpForm({super.key, required this.authBloc});
 
   @override
   State<SignUpForm> createState() => _SignUpFormState();
@@ -112,7 +114,9 @@ class _SignUpFormState extends State<SignUpForm> {
             text: "or",
           ),
           SizedBox(height: 20.h),
-          const GoogleCustomButton(),
+          GoogleCustomButton(
+            authBloc: widget.authBloc,
+          ),
         ],
       ),
     );

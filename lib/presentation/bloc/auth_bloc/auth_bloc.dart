@@ -8,8 +8,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc(this.authRepository) : super(const AuthInitial()) {
     on<SignInEvent>(_signInEvent);
-
     on<SignUpEvent>(_signUpEvent);
+    on<SignInWithGoogleEvent>(signInWithGoogle);
   }
 
   Future<void> _signInEvent(event, emit) async {
@@ -32,6 +32,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         email: event.email,
         password: event.password,
       );
+      emit(const AuthSuccess());
+    } catch (error) {
+      emit(AuthFailure(error.toString()));
+    }
+  }
+
+  Future<void> signInWithGoogle(event, emit) async {
+    emit(const AuthLoading());
+    try {
+      await authRepository.signInWithGoogle();
       emit(const AuthSuccess());
     } catch (error) {
       emit(AuthFailure(error.toString()));

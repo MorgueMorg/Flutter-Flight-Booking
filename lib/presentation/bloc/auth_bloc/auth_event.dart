@@ -8,4 +8,5 @@ class AuthEvent with _$AuthEvent {
       String email, String password) = SignInEvent;
   const factory AuthEvent.signUpWithEmailAndPassword(
       String email, String password) = SignUpEvent;
+  const factory AuthEvent.signInWithGoogle() = SignInWithGoogleEvent;
 }

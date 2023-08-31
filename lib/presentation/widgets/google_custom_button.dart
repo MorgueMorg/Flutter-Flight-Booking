@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
+import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_event.dart';
 
 class GoogleCustomButton extends StatelessWidget {
-  const GoogleCustomButton({super.key});
+  final AuthBloc authBloc;
+
+  const GoogleCustomButton({Key? key, required this.authBloc})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,15 @@ class GoogleCustomButton extends StatelessWidget {
           ),
           backgroundColor: Colors.grey.shade400,
         ),
-        onPressed: () {},
+        onPressed: () async {
+          try {
+            authBloc.add(
+              const SignInWithGoogleEvent(),
+            );
+          } catch (error) {
+            // Обработка ошибок
+          }
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
