@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/common/utils/constants.dart';
+import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
+import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_event.dart';
+import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_state.dart';
 import 'package:mobyte_flight/presentation/widgets/default_button.dart';
 import 'package:mobyte_flight/presentation/widgets/form_error.dart';
 import 'package:mobyte_flight/presentation/widgets/google_custom_button.dart';
@@ -20,6 +24,14 @@ class _SignFormState extends State<SignInForm> {
   String? password;
   bool? remember = false;
   final List<String?> errors = [];
+
+  late AuthBloc _authBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _authBloc = context.read<AuthBloc>();
+  }
 
   void addError({String? error}) {
     if (!errors.contains(error)) {
@@ -93,17 +105,55 @@ class _SignFormState extends State<SignInForm> {
             errors: errors,
           ),
           SizedBox(height: 20.h),
-          DefaultButton(
-            text: "Login",
-            press: () {
-              if (_formKey.currentState!.validate()) {
-                context.go("/login_success");
+          BlocBuilder<AuthBloc, AuthState>(
+            builder: (context, state) {
+              if (state is AuthSuccess) {
+                // ? Коллбэк который вызывает навигацию после построения виджета
+                WidgetsBinding.instance.addPostFrameCallback(
+                  (_) {
+                    context.go("/login_success");
+                  },
+                );
+              } else if (state is AuthFailure) {
+                print("Авторизация не прошла");
               }
+              return DefaultButton(
+                text: "Login",
+                press: () {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+
+                    if (email != null && password != null) {
+                      _authBloc.add(
+                        SignInEvent(email!, password!),
+                      );
+                    }
+                  }
+                },
+                color: Colors.red,
+                height: 55.h,
+                width: 400.w,
+              );
             },
-            color: Colors.red,
-            height: 55.h,
-            width: 400.w,
           ),
+
+          // DefaultButton(
+          //   text: "Login",
+          //   press: () {
+          //     if (_formKey.currentState!.validate()) {
+          //       _formKey.currentState!.save();
+
+          //       if (email != null && password != null) {
+          //         _authBloc.add(
+          //           SignInEvent(email!, password!),
+          //         );
+          //       }
+          //     }
+          //   },
+          //   color: Colors.red,
+          //   height: 55.h,
+          //   width: 400.w,
+          // ),
           SizedBox(height: 20.h),
           const SignDivider(
             text: "or sign in with",
