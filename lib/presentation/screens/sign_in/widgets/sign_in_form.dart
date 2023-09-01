@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobyte_flight/common/utils/constants.dart';
+import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/styles/app_styles.dart';
+import 'package:mobyte_flight/common/utils/validators.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_event.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_state.dart';
@@ -12,7 +14,9 @@ import 'package:mobyte_flight/presentation/widgets/google_custom_button.dart';
 import 'package:mobyte_flight/presentation/widgets/sign_divider.dart';
 
 class SignInForm extends StatefulWidget {
-  const SignInForm({super.key});
+  final AuthBloc authBloc;
+
+  const SignInForm({super.key, required this.authBloc});
 
   @override
   State<SignInForm> createState() => _SignFormState();
@@ -56,22 +60,20 @@ class _SignFormState extends State<SignInForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Email Address",
             style: TextStyle(
-              fontSize: 16,
-              color: Colors.black,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             ),
           ),
           SizedBox(height: 5.h),
           _buildEmailFormField(),
           SizedBox(height: 30.h),
-          const Text(
+          Text(
             "Password",
             style: TextStyle(
-              fontSize: 16,
-              color: Colors.black,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -82,7 +84,7 @@ class _SignFormState extends State<SignInForm> {
             children: [
               Checkbox(
                 value: remember,
-                activeColor: Colors.red,
+                activeColor: AppColors.primaryPurple,
                 onChanged: (value) {
                   setState(() {
                     remember = value;
@@ -130,36 +132,20 @@ class _SignFormState extends State<SignInForm> {
                     }
                   }
                 },
-                color: Colors.red,
+                // color: AppColors.primaryPurple,
                 height: 55.h,
                 width: 400.w,
               );
             },
           ),
-
-          // DefaultButton(
-          //   text: "Login",
-          //   press: () {
-          //     if (_formKey.currentState!.validate()) {
-          //       _formKey.currentState!.save();
-
-          //       if (email != null && password != null) {
-          //         _authBloc.add(
-          //           SignInEvent(email!, password!),
-          //         );
-          //       }
-          //     }
-          //   },
-          //   color: Colors.red,
-          //   height: 55.h,
-          //   width: 400.w,
-          // ),
           SizedBox(height: 20.h),
           const SignDivider(
             text: "or sign in with",
           ),
           SizedBox(height: 20.h),
-          const GoogleCustomButton(),
+          GoogleCustomButton(
+            authBloc: widget.authBloc,
+          ),
         ],
       ),
     );
@@ -171,32 +157,23 @@ class _SignFormState extends State<SignInForm> {
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: Constants.kPassNullError);
+          removeError(error: Validators.kPassNullError);
         } else if (value.length >= 8) {
-          removeError(error: Constants.kShortPassError);
+          removeError(error: Validators.kShortPassError);
         }
         return;
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error: Constants.kPassNullError);
+          addError(error: Validators.kPassNullError);
           return "";
         } else if (value.length < 8) {
-          addError(error: Constants.kShortPassError);
+          addError(error: Validators.kShortPassError);
           return "";
         }
         return null;
       },
-      decoration: InputDecoration(
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.r),
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.r),
-        ),
-        hintText: "Enter your password",
-      ),
+      decoration: AppStyles.inputDecoration(hintText: "Enter your password"),
     );
   }
 
@@ -206,32 +183,22 @@ class _SignFormState extends State<SignInForm> {
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: Constants.kEmailNullError);
+          removeError(error: Validators.kEmailNullError);
         } else if (!emailValidatorRegExp.hasMatch(value)) {
-          removeError(error: Constants.kInvalidEmailError);
+          removeError(error: Validators.kInvalidEmailError);
         }
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error: Constants.kEmailNullError);
+          addError(error: Validators.kEmailNullError);
           return "";
         } else if (!emailValidatorRegExp.hasMatch(value)) {
-          addError(error: Constants.kInvalidEmailError);
+          addError(error: Validators.kInvalidEmailError);
           return "";
         }
         return null;
       },
-      decoration: InputDecoration(
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.r),
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.r),
-        ),
-        hintText: "Enter your email",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-      ),
+      decoration: AppStyles.inputDecoration(hintText: "Enter your email"),
     );
   }
 }

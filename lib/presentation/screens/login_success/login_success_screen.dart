@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobyte_flight/common/constants/app_colors.dart';
 import 'package:mobyte_flight/presentation/widgets/default_button.dart';
 
 class LoginSuccessScreen extends StatelessWidget {
@@ -17,11 +18,12 @@ class LoginSuccessScreen extends StatelessWidget {
           children: [
             const Spacer(),
             Text(
-              "Login Success!",
+              "Success!",
               style: TextStyle(
-                  fontSize: 30.r,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                fontSize: 30.sp,
+                fontWeight: FontWeight.bold,
+                color: AppColors.primaryPurple,
+              ),
             ),
             const Spacer(),
             Image.asset(
@@ -36,7 +38,6 @@ class LoginSuccessScreen extends StatelessWidget {
                 press: () {
                   context.go("/main");
                 },
-                color: Colors.red,
                 height: 60.h,
                 width: 400.w,
               ),

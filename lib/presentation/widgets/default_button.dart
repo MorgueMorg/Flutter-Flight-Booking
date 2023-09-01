@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobyte_flight/common/constants/app_colors.dart';
 
 class DefaultButton extends StatelessWidget {
   final String text;
-  final Color color;
   final Function? press;
+  final List<Color>? gradientColors;
   final double height;
   final double width;
 
   const DefaultButton({
     super.key,
     required this.text,
-    required this.color,
     required this.height,
     required this.width,
     this.press,
+    this.gradientColors,
   });
 
   @override
@@ -22,20 +23,24 @@ class DefaultButton extends StatelessWidget {
     return SizedBox(
       height: height,
       width: width,
-      child: TextButton(
-        style: TextButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.r),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.r),
+          gradient: LinearGradient(
+            colors: [AppColors.primaryPurple, AppColors.secondaryPurple],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-          backgroundColor: color,
         ),
-        onPressed: press as void Function()?,
-        child: Text(
-          text,
-          maxLines: 1,
-          style: TextStyle(
-            fontSize: 16.sp,
-            color: Colors.white,
+        child: TextButton(
+          onPressed: press as void Function()?,
+          child: Text(
+            text,
+            maxLines: 1,
+            style: TextStyle(
+              fontSize: 16.sp,
+              color: Colors.white,
+            ),
           ),
         ),
       ),

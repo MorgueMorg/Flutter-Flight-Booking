@@ -1,7 +1,4 @@
-abstract class Constants {
-  static String apiUrl = "";
-  // static String apiUrl = "http://api.aviationstack.com/v1/flights?access_key=0c6f621f57c5d3e34d78da2744c294de&limit=15";
-
+abstract class Validators {
   // Form Errors
   static String kEmailNullError = "Please Enter your email";
   static String kInvalidEmailError = "Please Enter Valid Email";

@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mobyte_flight/domain/entities/user/user_entity.dart';
 
 class FirebaseDataSource {
@@ -21,6 +22,26 @@ class FirebaseDataSource {
         email: email,
         password: password,
       );
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser != null) {
+        final GoogleSignInAuthentication googleAuth =
+            await googleUser.authentication;
+        final AuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+
+        return await _firebaseAuth.signInWithCredential(credential);
+      } else {
+        throw Exception("Google sign-in was canceled.");
+      }
     } catch (e) {
       throw e.toString();
     }
