@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobyte_flight/common/utils/constants.dart';
+import 'package:mobyte_flight/common/styles/app_styles.dart';
+import 'package:mobyte_flight/common/utils/validators.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_event.dart';
 import 'package:mobyte_flight/presentation/widgets/default_button.dart';
@@ -61,7 +62,6 @@ class _SignUpFormState extends State<SignUpForm> {
             "Email Address",
             style: TextStyle(
               fontSize: 16.sp,
-              color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -72,7 +72,6 @@ class _SignUpFormState extends State<SignUpForm> {
             "Password",
             style: TextStyle(
               fontSize: 16.sp,
-              color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -83,7 +82,6 @@ class _SignUpFormState extends State<SignUpForm> {
             "Confirm Password",
             style: TextStyle(
               fontSize: 16.sp,
-              color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -105,7 +103,6 @@ class _SignUpFormState extends State<SignUpForm> {
                 }
               }
             },
-            color: Colors.red,
             height: 55.h,
             width: 400.w,
           ),
@@ -128,32 +125,23 @@ class _SignUpFormState extends State<SignUpForm> {
       onSaved: (newValue) => confirmPassword = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: Constants.kPassNullError);
+          removeError(error: Validators.kPassNullError);
         } else if (value.isNotEmpty && password == confirmPassword) {
-          removeError(error: Constants.kMatchPassError);
+          removeError(error: Validators.kMatchPassError);
         }
         confirmPassword = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error: Constants.kPassNullError);
+          addError(error: Validators.kPassNullError);
           return "";
         } else if ((password != value)) {
-          addError(error: Constants.kMatchPassError);
+          addError(error: Validators.kMatchPassError);
           return "";
         }
         return null;
       },
-      decoration: InputDecoration(
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        hintText: "Confirm your password",
-      ),
+      decoration: AppStyles.inputDecoration(hintText: "Confirm your password"),
     );
   }
 
@@ -163,33 +151,24 @@ class _SignUpFormState extends State<SignUpForm> {
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: Constants.kPassNullError);
+          removeError(error: Validators.kPassNullError);
         } else if (value.length >= 8) {
-          removeError(error: Constants.kShortPassError);
+          removeError(error: Validators.kShortPassError);
         }
         password = value;
         return;
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error: Constants.kPassNullError);
+          addError(error: Validators.kPassNullError);
           return "";
         } else if (value.length < 8) {
-          addError(error: Constants.kShortPassError);
+          addError(error: Validators.kShortPassError);
           return "";
         }
         return null;
       },
-      decoration: InputDecoration(
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        hintText: "Enter your password",
-      ),
+      decoration: AppStyles.inputDecoration(hintText: "Enter your password"),
     );
   }
 
@@ -199,33 +178,23 @@ class _SignUpFormState extends State<SignUpForm> {
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: Constants.kEmailNullError);
+          removeError(error: Validators.kEmailNullError);
         } else if (emailValidatorRegExp.hasMatch(value)) {
-          removeError(error: Constants.kInvalidEmailError);
+          removeError(error: Validators.kInvalidEmailError);
         }
         return;
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error: Constants.kEmailNullError);
+          addError(error: Validators.kEmailNullError);
           return "";
         } else if (!emailValidatorRegExp.hasMatch(value)) {
-          addError(error: Constants.kInvalidEmailError);
+          addError(error: Validators.kInvalidEmailError);
           return "";
         }
         return null;
       },
-      decoration: InputDecoration(
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        hintText: "Enter your email",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-      ),
+      decoration: AppStyles.inputDecoration(hintText: "Enter your email"),
     );
   }
 }

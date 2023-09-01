@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mobyte_flight/common/constants/app_colors.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_event.dart';
 
@@ -20,7 +21,7 @@ class GoogleCustomButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.r),
           ),
-          backgroundColor: Colors.grey.shade400,
+          backgroundColor: Colors.white,
         ),
         onPressed: () async {
           try {
@@ -28,20 +29,20 @@ class GoogleCustomButton extends StatelessWidget {
               const SignInWithGoogleEvent(),
             );
           } catch (error) {
-            // Обработка ошибок
+            error.toString();
           }
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset("assets/icons/Google.svg"),
+            SvgPicture.asset("assets/icons/Google.svg",),
             SizedBox(width: 15.w),
             Text(
               "Continue with Google",
               maxLines: 1,
               style: TextStyle(
                 fontSize: 16.sp,
-                color: Colors.grey.shade800,
+                color: AppColors.secondaryPurple,
               ),
             ),
           ],

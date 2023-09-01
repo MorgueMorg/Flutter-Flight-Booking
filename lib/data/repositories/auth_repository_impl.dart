@@ -45,7 +45,6 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   UserEntity getCurrentUser() {
-    // TODO
     final currentUser = _firebaseDataSource.getCurrentUser();
     return UserEntity(id: currentUser.id, email: currentUser.email);
   }

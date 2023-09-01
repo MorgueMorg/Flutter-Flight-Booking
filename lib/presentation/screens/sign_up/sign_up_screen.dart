@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobyte_flight/common/constants/app_colors.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:mobyte_flight/presentation/screens/sign_up/widgets/sign_up_form.dart';
 
@@ -15,11 +16,9 @@ class SignUpScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "Register",
-          style: TextStyle(color: Colors.black),
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: SafeArea(
         child: SizedBox(
@@ -35,8 +34,7 @@ class SignUpScreen extends StatelessWidget {
                   Text(
                     "Register Account",
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 28.r,
+                      fontSize: 28.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -58,7 +56,7 @@ class SignUpScreen extends StatelessWidget {
                         "Already have an account?",
                         style: TextStyle(
                           color: Colors.grey,
-                          fontSize: 16.r,
+                          fontSize: 16.sp,
                         ),
                       ),
                       GestureDetector(
@@ -68,9 +66,9 @@ class SignUpScreen extends StatelessWidget {
                         child: Text(
                           " Sign in here",
                           style: TextStyle(
-                            color: Colors.red,
+                            color: AppColors.primaryPurple,
                             fontWeight: FontWeight.bold,
-                            fontSize: 16.r,
+                            fontSize: 16.sp,
                           ),
                         ),
                       ),

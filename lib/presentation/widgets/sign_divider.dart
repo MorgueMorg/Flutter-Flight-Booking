@@ -14,18 +14,17 @@ class SignDivider extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: Divider(
-            color: Colors.grey.shade500,
+            color: Colors.white,
             endIndent: 10.w,
             thickness: 1,
           ),
         ),
         Text(
           text,
-          style: TextStyle(color: Colors.grey.shade600),
         ),
         Expanded(
           child: Divider(
-            color: Colors.grey.shade500,
+            color: Colors.white,
             indent: 10.w,
             thickness: 1,
           ),
