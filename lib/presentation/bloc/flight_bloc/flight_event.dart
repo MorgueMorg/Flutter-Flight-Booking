@@ -4,5 +4,5 @@ part 'flight_event.freezed.dart';
 
 @freezed
 abstract class FlightEvent with _$FlightEvent {
-  const factory FlightEvent.fetchGuests() = FetchFlightEvent;
+  const factory FlightEvent.fetchFlights() = FetchFlightEvent;
 }

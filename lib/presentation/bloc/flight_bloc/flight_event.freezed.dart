@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FlightEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchGuests,
+    required TResult Function() fetchFlights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchGuests,
+    TResult? Function()? fetchFlights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchGuests,
+    TResult Function()? fetchFlights,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlightEvent value) fetchGuests,
+    required TResult Function(FetchFlightEvent value) fetchFlights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlightEvent value)? fetchGuests,
+    TResult? Function(FetchFlightEvent value)? fetchFlights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlightEvent value)? fetchGuests,
+    TResult Function(FetchFlightEvent value)? fetchFlights,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,7 +91,7 @@ class _$FetchFlightEvent implements FetchFlightEvent {
 
   @override
   String toString() {
-    return 'FlightEvent.fetchGuests()';
+    return 'FlightEvent.fetchFlights()';
   }
 
   @override
@@ -106,27 +106,27 @@ class _$FetchFlightEvent implements FetchFlightEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchGuests,
+    required TResult Function() fetchFlights,
   }) {
-    return fetchGuests();
+    return fetchFlights();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchGuests,
+    TResult? Function()? fetchFlights,
   }) {
-    return fetchGuests?.call();
+    return fetchFlights?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchGuests,
+    TResult Function()? fetchFlights,
     required TResult orElse(),
   }) {
-    if (fetchGuests != null) {
-      return fetchGuests();
+    if (fetchFlights != null) {
+      return fetchFlights();
     }
     return orElse();
   }
@@ -134,27 +134,27 @@ class _$FetchFlightEvent implements FetchFlightEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlightEvent value) fetchGuests,
+    required TResult Function(FetchFlightEvent value) fetchFlights,
   }) {
-    return fetchGuests(this);
+    return fetchFlights(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlightEvent value)? fetchGuests,
+    TResult? Function(FetchFlightEvent value)? fetchFlights,
   }) {
-    return fetchGuests?.call(this);
+    return fetchFlights?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlightEvent value)? fetchGuests,
+    TResult Function(FetchFlightEvent value)? fetchFlights,
     required TResult orElse(),
   }) {
-    if (fetchGuests != null) {
-      return fetchGuests(this);
+    if (fetchFlights != null) {
+      return fetchFlights(this);
     }
     return orElse();
   }

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:mobyte_flight/common/constants/menu_enum.dart';
+import 'package:mobyte_flight/common/widgets/custom_bottom_navbar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobyte_flight/common/constants/app_colors.dart';
-import 'package:mobyte_flight/common/constants/menu_enum.dart';
-import 'package:mobyte_flight/common/widgets/custom_bottom_navbar.dart';
-import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_bloc.dart';
-import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_event.dart';
-import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_state.dart';
+import 'package:mobyte_flight/presentation/bloc/search_bloc/search_bloc.dart';
+import 'package:mobyte_flight/presentation/bloc/search_bloc/search_event.dart';
+import 'package:mobyte_flight/presentation/bloc/search_bloc/search_state.dart';
+import 'package:mobyte_flight/presentation/screens/main/widgets/search_field.dart';
 
-class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,12 @@ class MainScreen extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 15.h),
-          BlocBuilder<FlightBloc, FlightState>(
+          SearchField(
+            onChanged: (String value) {
+              context.read<SearchBloc>().add(SearchFlightEvent(value));
+            },
+          ),
+          BlocBuilder<SearchBloc, SearchState>(
             builder: (context, state) {
               return state.maybeWhen(
                 orElse: () => const Center(
@@ -62,15 +67,8 @@ class MainScreen extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.primaryPurple,
-        onPressed: () {
-          context.read<FlightBloc>().add(const FetchFlightEvent());
-        },
-        child: const Icon(Icons.refresh),
-      ),
       bottomNavigationBar: const CustomBottomNavBar(
-        selectedMenu: MenuEnum.main,
+        selectedMenu: MenuEnum.search,
       ),
     );
   }

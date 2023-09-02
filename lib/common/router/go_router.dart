@@ -6,13 +6,14 @@ import 'package:mobyte_flight/presentation/screens/details/details_screen.dart';
 import 'package:mobyte_flight/presentation/screens/forgot_password/forgot_password_screen.dart';
 import 'package:mobyte_flight/presentation/screens/main/main_screen.dart';
 import 'package:mobyte_flight/presentation/screens/login_success/login_success_screen.dart';
+import 'package:mobyte_flight/presentation/screens/search/search_screen.dart';
 import 'package:mobyte_flight/presentation/screens/sign_in/sign_in_screen.dart';
 import 'package:mobyte_flight/presentation/screens/sign_up/sign_up_screen.dart';
 import 'package:mobyte_flight/presentation/screens/splash/splash_screen.dart';
 import 'package:mobyte_flight/presentation/screens/booking/booking_screen.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: "/splash",
+  initialLocation: "/main",
   routes: <RouteBase>[
     GoRoute(
       name: "splash",
@@ -64,6 +65,13 @@ final GoRouter router = GoRouter(
         return DetailsScreen(
           flightInfo: flightInfo,
         );
+      },
+    ),
+    GoRoute(
+      name: "search",
+      path: "/search",
+      builder: (BuildContext context, GoRouterState state) {
+        return const SearchScreen();
       },
     ),
     GoRoute(

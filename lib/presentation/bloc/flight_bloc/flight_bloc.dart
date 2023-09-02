@@ -7,10 +7,10 @@ class FlightBloc extends Bloc<FlightEvent, FlightState> {
   final FlightRepository repository;
 
   FlightBloc(this.repository) : super(const FlightState.initial()) {
-    on<FetchFlightEvent>(onFetchFlights);
+    on<FetchFlightEvent>(_fetchFlights);
   }
 
-  Future<void> onFetchFlights(
+  Future<void> _fetchFlights(
       FetchFlightEvent event, Emitter<FlightState> emit) async {
     emit(const FlightState.loading());
     try {

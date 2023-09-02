@@ -21,4 +21,25 @@ class FlightDataSource {
       throw Exception('Failed to fetch flights: $error');
     }
   }
+
+  Future<List<FlightInfoModel>> searchFlights(String query) async {
+    try {
+      final flightModels = await fetchFlights();
+      if (query.isEmpty) {
+        return flightModels;
+      } else {
+        return flightModels.where((flight) {
+          return flight.arrival!.airport!
+                  .toLowerCase()
+                  .contains(query.toLowerCase()) ||
+              flight.flightStatus!
+                  .toLowerCase()
+                  .contains(query.toLowerCase()) ||
+              false;
+        }).toList();
+      }
+    } catch (error) {
+      throw Exception('Failed to fetch or filter flights: $error');
+    }
+  }
 }
