@@ -9,7 +9,7 @@ class BookingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Booking"),
+        title: const Text("Test commit"),
       ),
       bottomNavigationBar: const CustomBottomNavBar(
         selectedMenu: MenuEnum.booking,
