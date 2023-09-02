@@ -46,12 +46,13 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 SvgPicture.asset("assets/icons/airplane.svg"),
                 SizedBox(height: 10.h),
-                const Text(
+                Text(
                   "Mobyte Flight",
                   style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.primaryWhite,
+                  ),
                 ),
               ],
             ),

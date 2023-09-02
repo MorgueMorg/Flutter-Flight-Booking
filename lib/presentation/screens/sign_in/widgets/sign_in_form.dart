@@ -119,6 +119,9 @@ class _SignFormState extends State<SignInForm> {
                   },
                 );
               } else if (state is AuthFailure) {
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  addError(error: Validators.kIncorrectData);
+                });
                 print("Авторизация не прошла");
               }
               return DefaultButton(

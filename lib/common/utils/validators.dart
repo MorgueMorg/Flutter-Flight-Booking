@@ -10,6 +10,7 @@ abstract class Validators {
   static String kAddressNullError = "Please Enter your address";
   static String kWeakPasswordError = "The password is too weak";
   static String kEmailAlreadyUsedError = "The email is already used";
+  static String kIncorrectData = "Incorrect email or password";
 }
 
 // RegExp
