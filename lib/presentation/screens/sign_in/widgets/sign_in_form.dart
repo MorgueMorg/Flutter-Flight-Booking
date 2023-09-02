@@ -94,7 +94,9 @@ class _SignFormState extends State<SignInForm> {
               const Text("Remember me"),
               const Spacer(),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  context.push("/forgot_password");
+                },
                 child: const Text(
                   "Forgot Password",
                   style: TextStyle(decoration: TextDecoration.underline),

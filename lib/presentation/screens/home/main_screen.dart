@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_event.dart';
 import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_state.dart';
@@ -31,10 +32,13 @@ class MainScreen extends StatelessWidget {
               return ListView.builder(
                 itemCount: flights.length,
                 itemBuilder: (context, index) {
-                  final flight = flights[index];
+                  final flightInfo = flights[index];
                   return ListTile(
-                    title: Text('Flight: ${flight.arrival?.airport}'),
-                    subtitle: Text('Status: ${flight.flightStatus}'),
+                    title: Text('Flight: ${flightInfo.arrival?.airport}'),
+                    subtitle: Text('Status: ${flightInfo.flightStatus}'),
+                    onTap: () {
+                      context.push("/details", extra: flightInfo);
+                    },
                   );
                 },
               );
