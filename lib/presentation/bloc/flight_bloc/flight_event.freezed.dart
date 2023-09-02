@@ -18,33 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FlightEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchGuests,
+    required TResult Function() fetchFlights,
+    required TResult Function(String query) searchFlights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchGuests,
+    TResult? Function()? fetchFlights,
+    TResult? Function(String query)? searchFlights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchGuests,
+    TResult Function()? fetchFlights,
+    TResult Function(String query)? searchFlights,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlightEvent value) fetchGuests,
+    required TResult Function(FetchFlightEvent value) fetchFlights,
+    required TResult Function(SearchFlightEvent value) searchFlights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlightEvent value)? fetchGuests,
+    TResult? Function(FetchFlightEvent value)? fetchFlights,
+    TResult? Function(SearchFlightEvent value)? searchFlights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlightEvent value)? fetchGuests,
+    TResult Function(FetchFlightEvent value)? fetchFlights,
+    TResult Function(SearchFlightEvent value)? searchFlights,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,7 +97,7 @@ class _$FetchFlightEvent implements FetchFlightEvent {
 
   @override
   String toString() {
-    return 'FlightEvent.fetchGuests()';
+    return 'FlightEvent.fetchFlights()';
   }
 
   @override
@@ -106,27 +112,30 @@ class _$FetchFlightEvent implements FetchFlightEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchGuests,
+    required TResult Function() fetchFlights,
+    required TResult Function(String query) searchFlights,
   }) {
-    return fetchGuests();
+    return fetchFlights();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchGuests,
+    TResult? Function()? fetchFlights,
+    TResult? Function(String query)? searchFlights,
   }) {
-    return fetchGuests?.call();
+    return fetchFlights?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchGuests,
+    TResult Function()? fetchFlights,
+    TResult Function(String query)? searchFlights,
     required TResult orElse(),
   }) {
-    if (fetchGuests != null) {
-      return fetchGuests();
+    if (fetchFlights != null) {
+      return fetchFlights();
     }
     return orElse();
   }
@@ -134,27 +143,30 @@ class _$FetchFlightEvent implements FetchFlightEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlightEvent value) fetchGuests,
+    required TResult Function(FetchFlightEvent value) fetchFlights,
+    required TResult Function(SearchFlightEvent value) searchFlights,
   }) {
-    return fetchGuests(this);
+    return fetchFlights(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlightEvent value)? fetchGuests,
+    TResult? Function(FetchFlightEvent value)? fetchFlights,
+    TResult? Function(SearchFlightEvent value)? searchFlights,
   }) {
-    return fetchGuests?.call(this);
+    return fetchFlights?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlightEvent value)? fetchGuests,
+    TResult Function(FetchFlightEvent value)? fetchFlights,
+    TResult Function(SearchFlightEvent value)? searchFlights,
     required TResult orElse(),
   }) {
-    if (fetchGuests != null) {
-      return fetchGuests(this);
+    if (fetchFlights != null) {
+      return fetchFlights(this);
     }
     return orElse();
   }
@@ -162,4 +174,137 @@ class _$FetchFlightEvent implements FetchFlightEvent {
 
 abstract class FetchFlightEvent implements FlightEvent {
   const factory FetchFlightEvent() = _$FetchFlightEvent;
+}
+
+/// @nodoc
+abstract class _$$SearchFlightEventCopyWith<$Res> {
+  factory _$$SearchFlightEventCopyWith(
+          _$SearchFlightEvent value, $Res Function(_$SearchFlightEvent) then) =
+      __$$SearchFlightEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$$SearchFlightEventCopyWithImpl<$Res>
+    extends _$FlightEventCopyWithImpl<$Res, _$SearchFlightEvent>
+    implements _$$SearchFlightEventCopyWith<$Res> {
+  __$$SearchFlightEventCopyWithImpl(
+      _$SearchFlightEvent _value, $Res Function(_$SearchFlightEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? query = null,
+  }) {
+    return _then(_$SearchFlightEvent(
+      null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchFlightEvent implements SearchFlightEvent {
+  const _$SearchFlightEvent(this.query);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'FlightEvent.searchFlights(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchFlightEvent &&
+            (identical(other.query, query) || other.query == query));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, query);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchFlightEventCopyWith<_$SearchFlightEvent> get copyWith =>
+      __$$SearchFlightEventCopyWithImpl<_$SearchFlightEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchFlights,
+    required TResult Function(String query) searchFlights,
+  }) {
+    return searchFlights(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchFlights,
+    TResult? Function(String query)? searchFlights,
+  }) {
+    return searchFlights?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchFlights,
+    TResult Function(String query)? searchFlights,
+    required TResult orElse(),
+  }) {
+    if (searchFlights != null) {
+      return searchFlights(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlightEvent value) fetchFlights,
+    required TResult Function(SearchFlightEvent value) searchFlights,
+  }) {
+    return searchFlights(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlightEvent value)? fetchFlights,
+    TResult? Function(SearchFlightEvent value)? searchFlights,
+  }) {
+    return searchFlights?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlightEvent value)? fetchFlights,
+    TResult Function(SearchFlightEvent value)? searchFlights,
+    required TResult orElse(),
+  }) {
+    if (searchFlights != null) {
+      return searchFlights(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchFlightEvent implements FlightEvent {
+  const factory SearchFlightEvent(final String query) = _$SearchFlightEvent;
+
+  String get query;
+  @JsonKey(ignore: true)
+  _$$SearchFlightEventCopyWith<_$SearchFlightEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }

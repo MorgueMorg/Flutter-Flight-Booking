@@ -12,7 +12,7 @@ import 'package:mobyte_flight/presentation/screens/splash/splash_screen.dart';
 import 'package:mobyte_flight/presentation/screens/booking/booking_screen.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: "/splash",
+  initialLocation: "/main",
   routes: <RouteBase>[
     GoRoute(
       name: "splash",

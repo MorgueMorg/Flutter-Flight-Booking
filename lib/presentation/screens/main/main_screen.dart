@@ -23,7 +23,11 @@ class MainScreen extends StatelessWidget {
         children: [
           SizedBox(height: 15.h),
           SearchField(
-            onChanged: (String value) {},
+            onChanged: (String value) {
+              context.read<FlightBloc>().add(
+                    FlightEvent.searchFlights(value),
+                  ); // Запрос на поиск
+            },
           ),
           BlocBuilder<FlightBloc, FlightState>(
             builder: (context, state) {
@@ -40,18 +44,22 @@ class MainScreen extends StatelessWidget {
                       child: Text('No flights available.'),
                     );
                   }
-                  return ListView.builder(
-                    itemCount: flights.length,
-                    itemBuilder: (context, index) {
-                      final flightInfo = flights[index];
-                      return ListTile(
-                        title: Text('Flight: ${flightInfo.arrival?.airport}'),
-                        subtitle: Text('Status: ${flightInfo.flightStatus}'),
-                        onTap: () {
-                          context.push("/details", extra: flightInfo);
-                        },
-                      );
-                    },
+                  return Expanded(
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemCount: flights.length,
+                      itemBuilder: (context, index) {
+                        final flightInfo = flights[index];
+                        return ListTile(
+                          title: Text('Flight: ${flightInfo.arrival?.airport}'),
+                          subtitle: Text('Status: ${flightInfo.flightStatus}'),
+                          onTap: () {
+                            context.push("/details", extra: flightInfo);
+                          },
+                        );
+                      },
+                    ),
                   );
                 },
                 error: (errorMessage) => Center(
@@ -65,7 +73,7 @@ class MainScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.primaryPurple,
         onPressed: () {
-          context.read<FlightBloc>().add(const FetchFlightEvent());
+          context.read<FlightBloc>().add(const FlightEvent.fetchFlights());
         },
         child: const Icon(Icons.refresh),
       ),
