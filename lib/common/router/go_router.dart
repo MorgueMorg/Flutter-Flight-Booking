@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobyte_flight/domain/entities/flight_info/flight_info_entity.dart';
+import 'package:mobyte_flight/presentation/screens/details/details_screen.dart';
+import 'package:mobyte_flight/presentation/screens/forgot_password/forgot_password_screen.dart';
 import 'package:mobyte_flight/presentation/screens/home/main_screen.dart';
 import 'package:mobyte_flight/presentation/screens/login_success/login_success_screen.dart';
 import 'package:mobyte_flight/presentation/screens/sign_in/sign_in_screen.dart';
@@ -31,6 +34,13 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
+      name: "forgot_password",
+      path: "/forgot_password",
+      builder: (BuildContext context, GoRouterState state) {
+        return const ForgotPasswordScreen();
+      },
+    ),
+    GoRoute(
       name: "main",
       path: "/main",
       builder: (BuildContext context, GoRouterState state) {
@@ -42,6 +52,16 @@ final GoRouter router = GoRouter(
       path: "/login_success",
       builder: (BuildContext context, GoRouterState state) {
         return const LoginSuccessScreen();
+      },
+    ),
+    GoRoute(
+      name: "details",
+      path: "/details",
+      builder: (BuildContext context, GoRouterState state) {
+        final flightInfo = state.extra as FlightInfoEntity;
+        return DetailsScreen(
+          flightInfo: flightInfo,
+        );
       },
     ),
   ],
