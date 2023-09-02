@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobyte_flight/common/constants/app_colors.dart';
 
 class SignDivider extends StatelessWidget {
   final String text;
@@ -14,7 +15,7 @@ class SignDivider extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: Divider(
-            color: Colors.white,
+            color: AppColors.primaryWhite,
             endIndent: 10.w,
             thickness: 1,
           ),
@@ -24,7 +25,7 @@ class SignDivider extends StatelessWidget {
         ),
         Expanded(
           child: Divider(
-            color: Colors.white,
+            color: AppColors.primaryWhite,
             indent: 10.w,
             thickness: 1,
           ),

@@ -21,7 +21,7 @@ class GoogleCustomButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.r),
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.primaryWhite,
         ),
         onPressed: () async {
           try {

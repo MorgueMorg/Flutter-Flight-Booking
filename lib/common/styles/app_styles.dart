@@ -11,7 +11,9 @@ abstract class AppStyles {
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10.r),
-        borderSide: const BorderSide(color: Colors.white),
+        borderSide: BorderSide(
+          color: AppColors.primaryWhite,
+        ),
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),

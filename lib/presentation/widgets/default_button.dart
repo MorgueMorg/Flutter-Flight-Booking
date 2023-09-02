@@ -39,7 +39,7 @@ class DefaultButton extends StatelessWidget {
             maxLines: 1,
             style: TextStyle(
               fontSize: 16.sp,
-              color: Colors.white,
+              color: AppColors.primaryWhite,
             ),
           ),
         ),

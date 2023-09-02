@@ -10,17 +10,17 @@ ThemeData darkTheme() {
       headlineSmall: base.headlineSmall!.copyWith(
         fontSize: 18.sp,
         fontFamily: 'Lato',
-        color: Colors.white,
+        color: AppColors.primaryWhite,
       ),
       headlineMedium: base.headlineMedium!.copyWith(
         fontSize: 18.sp,
         fontFamily: 'Lato',
-        color: Colors.white,
+        color: AppColors.primaryWhite,
       ),
       titleLarge: base.titleLarge!.copyWith(
         fontSize: 23.sp,
         fontFamily: 'Lato',
-        color: Colors.white,
+        color: AppColors.primaryWhite,
       ),
       bodySmall: base.bodySmall!.copyWith(
         fontSize: 12.sp,
@@ -29,21 +29,23 @@ ThemeData darkTheme() {
       bodyMedium: base.bodyMedium!.copyWith(
         fontSize: 16.sp,
         fontFamily: 'Lato',
-        color: Colors.white,
+        color: AppColors.primaryWhite,
       ),
       bodyLarge: base.bodyLarge!.copyWith(
         fontSize: 14.sp,
-        color: Colors.white,
+        color: AppColors.primaryWhite,
       ),
     );
   }
 
   return base.copyWith(
     appBarTheme: AppBarTheme(
-    elevation: 0,
-    iconTheme: const IconThemeData(color: Colors.white),
-    titleTextStyle: TextStyle(color: Colors.white, fontSize: 18.sp),
-  ),
+      elevation: 0,
+      iconTheme: IconThemeData(
+        color: AppColors.primaryWhite,
+      ),
+      titleTextStyle: TextStyle(color: AppColors.primaryWhite, fontSize: 18.sp),
+    ),
     textTheme: basicTextTheme(base.textTheme),
     primaryColor: Colors.deepPurple[300],
     iconTheme: IconThemeData(
