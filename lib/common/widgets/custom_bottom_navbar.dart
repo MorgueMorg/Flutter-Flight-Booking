@@ -46,6 +46,18 @@ class CustomBottomNavBar extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {
+                context.go('/search');
+              },
+              icon: SvgPicture.asset("assets/icons/search.svg",
+                  height: 22.h,
+                  width: 22.w,
+                  // ignore: deprecated_member_use
+                  color: MenuEnum.search == selectedMenu
+                      ? AppColors.primaryBlue
+                      : inActiveIconColor),
+            ),
+            IconButton(
+              onPressed: () {
                 context.go('/booking');
               },
               icon: SvgPicture.asset("assets/icons/Bookings.svg",

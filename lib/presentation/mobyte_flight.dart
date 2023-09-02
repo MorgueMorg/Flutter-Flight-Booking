@@ -13,6 +13,7 @@ import 'package:mobyte_flight/data/datasources/remote_data_source.dart';
 import 'package:mobyte_flight/domain/repositories/search_repository.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_bloc.dart';
+import 'package:mobyte_flight/presentation/bloc/search_bloc/search_bloc.dart';
 
 class MobyteFlightApp extends StatelessWidget {
   const MobyteFlightApp({super.key});
@@ -34,10 +35,10 @@ class MobyteFlightApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FlightBloc(
-            flightRepository,
-            searchRepository,
-          ),
+          create: (context) => FlightBloc(flightRepository),
+        ),
+        BlocProvider(
+          create: (context) => SearchBloc(searchRepository),
         ),
         BlocProvider(
           create: (context) => AuthBloc(authRepository),
