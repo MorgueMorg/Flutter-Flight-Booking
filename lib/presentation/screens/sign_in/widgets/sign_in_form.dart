@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
 import 'package:mobyte_flight/common/styles/app_styles.dart';
 import 'package:mobyte_flight/common/utils/validators.dart';
+import 'package:mobyte_flight/di/dependencies.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_event.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_state.dart';
@@ -112,12 +113,15 @@ class _SignFormState extends State<SignInForm> {
           BlocBuilder<AuthBloc, AuthState>(
             builder: (context, state) {
               if (state is AuthSuccess) {
-                // ? Коллбэк который вызывает навигацию после построения виджета
-                WidgetsBinding.instance.addPostFrameCallback(
-                  (_) {
-                    context.go("/login_success");
-                  },
-                );
+                // ? Проверка на то авторизован ли пользователь (важно для выхода из аккаунта)
+                if (Dependencies.authRepository.isUserSignedIn()) {
+                  Future.delayed(
+                    Duration.zero,
+                    () {
+                      context.go("/login_success");
+                    },
+                  );
+                }
               } else if (state is AuthFailure) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
                   addError(error: Validators.kIncorrectData);
@@ -137,7 +141,6 @@ class _SignFormState extends State<SignInForm> {
                     }
                   }
                 },
-                // color: AppColors.primaryPurple,
                 height: 55.h,
                 width: 400.w,
               );
