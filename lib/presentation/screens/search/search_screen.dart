@@ -10,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_flight/presentation/bloc/search_bloc/search_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/search_bloc/search_event.dart';
 import 'package:mobyte_flight/presentation/bloc/search_bloc/search_state.dart';
-import 'package:mobyte_flight/presentation/screens/main/widgets/flight_card.dart';
+import 'package:mobyte_flight/presentation/widgets/flight_card.dart';
 import 'package:mobyte_flight/presentation/screens/search/widgets/search_field.dart';
 
 class SearchScreen extends StatelessWidget {

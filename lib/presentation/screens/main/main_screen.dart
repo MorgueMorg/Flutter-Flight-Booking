@@ -9,7 +9,7 @@ import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_event.dart';
 import 'package:mobyte_flight/presentation/bloc/flight_bloc/flight_state.dart';
 import 'package:mobyte_flight/presentation/screens/main/widgets/carousel.dart';
-import 'package:mobyte_flight/presentation/screens/main/widgets/flight_card.dart';
+import 'package:mobyte_flight/presentation/widgets/flight_card.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -86,6 +86,7 @@ class _MainScreenState extends State<MainScreen> {
                   );
                 },
               ),
+              SizedBox(height: 20.h),
             ],
           ),
         ),

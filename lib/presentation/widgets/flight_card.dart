@@ -30,7 +30,7 @@ class FlightCard extends StatelessWidget {
             margin: EdgeInsets.all(2.r),
             child: Column(
               children: [
-                CartContent(
+                _CartContent(
                   flightInfo: flightInfo,
                 ),
               ],
@@ -42,10 +42,10 @@ class FlightCard extends StatelessWidget {
   }
 }
 
-class CartContent extends StatelessWidget {
+class _CartContent extends StatelessWidget {
   final FlightInfoEntity flightInfo;
 
-  const CartContent({
+  const _CartContent({
     Key? key,
     required this.flightInfo,
   }) : super(key: key);
