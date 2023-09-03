@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
+import 'package:mobyte_flight/common/constants/app_text_styles.dart';
 
 class SearchField extends StatelessWidget {
   final ValueChanged<String> onChanged;
@@ -29,7 +31,7 @@ class SearchField extends StatelessWidget {
         fontWeight: FontWeight.normal,
       ).copyWith(
         decorationColor: AppColors.primaryWhite,
-        height: 1.2,
+        height: 1.2.h,
       ),
       onChanged: onChanged,
       decoration: buildSearchInputDecoration().copyWith(
@@ -42,18 +44,12 @@ class SearchField extends StatelessWidget {
           borderSide: BorderSide(color: AppColors.primaryPurple),
         ),
         fillColor: AppColors.appBackground,
-        hintText: "Search",
-        hintStyle: TextStyle(
-          fontSize: 15,
-          fontFamily: "Barlow",
-          color: AppColors.primaryWhite,
-          fontWeight: FontWeight.normal,
-        ),
+        hintText: AppStrings.search,
+        hintStyle: AppTextStyles.hintTextStyle,
         isDense: true,
-        suffixIconConstraints: const BoxConstraints(
-          maxHeight: 45,
+        suffixIconConstraints: BoxConstraints(
+          maxHeight: 45.h,
         ),
-        counterText: "",
       ),
     );
   }
@@ -67,8 +63,8 @@ class SearchField extends StatelessWidget {
       border: border,
       enabledBorder: border,
       focusedBorder: border,
-      prefixIconConstraints: const BoxConstraints(
-        maxHeight: 45,
+      prefixIconConstraints: BoxConstraints(
+        maxHeight: 45.h,
       ),
       prefixIcon: IconButton(
         onPressed: () {},

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobyte_flight/data/repositories/auth_repository_impl.dart';
+import 'package:mobyte_flight/di/dependencies.dart';
 import 'package:mobyte_flight/domain/entities/flight_info/flight_info_entity.dart';
-import 'package:mobyte_flight/presentation/screens/account/account_screen.dart';
+import 'package:mobyte_flight/presentation/screens/profile/profile_screen.dart';
 import 'package:mobyte_flight/presentation/screens/details/details_screen.dart';
 import 'package:mobyte_flight/presentation/screens/forgot_password/forgot_password_screen.dart';
 import 'package:mobyte_flight/presentation/screens/main/main_screen.dart';
@@ -13,7 +15,7 @@ import 'package:mobyte_flight/presentation/screens/splash/splash_screen.dart';
 import 'package:mobyte_flight/presentation/screens/booking/booking_screen.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: "/main",
+  initialLocation: "/splash",
   routes: <RouteBase>[
     GoRoute(
       name: "splash",
@@ -85,7 +87,9 @@ final GoRouter router = GoRouter(
       name: "account",
       path: "/account",
       builder: (BuildContext context, GoRouterState state) {
-        return const AccountScreen();
+        return ProfileScreen(
+          authRepository: AuthRepositoryImpl(Dependencies.firebase),
+        );
       },
     ),
   ],

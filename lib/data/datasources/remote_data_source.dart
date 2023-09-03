@@ -32,7 +32,16 @@ class FlightDataSource {
           return flight.arrival!.airport!
                   .toLowerCase()
                   .contains(query.toLowerCase()) ||
+              flight.arrival!.timezone!
+                  .toLowerCase()
+                  .contains(query.toLowerCase()) ||
+              flight.departure!.timezone!
+                  .toLowerCase()
+                  .contains(query.toLowerCase()) ||
               flight.flightStatus!
+                  .toLowerCase()
+                  .contains(query.toLowerCase()) ||
+              flight.departure!.airport!
                   .toLowerCase()
                   .contains(query.toLowerCase()) ||
               false;

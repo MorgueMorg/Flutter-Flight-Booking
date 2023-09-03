@@ -26,11 +26,7 @@ class DefaultButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
-          gradient: LinearGradient(
-            colors: [AppColors.primaryPurple, AppColors.secondaryPurple],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
+          color: AppColors.primaryPurple,
         ),
         child: TextButton(
           onPressed: press as void Function()?,

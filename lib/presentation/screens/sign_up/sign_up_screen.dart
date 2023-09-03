@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
+import 'package:mobyte_flight/common/constants/app_text_styles.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:mobyte_flight/presentation/screens/sign_up/widgets/sign_up_form.dart';
 
@@ -14,8 +16,8 @@ class SignUpScreen extends StatelessWidget {
     final authBloc = context.read<AuthBloc>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Register",
+        title: Text(
+          AppStrings.register,
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -32,15 +34,12 @@ class SignUpScreen extends StatelessWidget {
                 children: [
                   SizedBox(height: 30.h),
                   Text(
-                    "Register Account",
-                    style: TextStyle(
-                      fontSize: 28.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    AppStrings.registerAccount,
+                    style: AppTextStyles.titleStyle,
                   ),
                   SizedBox(height: 15.h),
-                  const Text(
-                    "Complete your details or continue \nwith social media",
+                  Text(
+                    AppStrings.completeDetails,
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 30.h),
@@ -53,7 +52,7 @@ class SignUpScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "Already have an account?",
+                        AppStrings.alreadyHaveAccount,
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 16.sp,
@@ -64,7 +63,7 @@ class SignUpScreen extends StatelessWidget {
                           context.go("/sign_in");
                         },
                         child: Text(
-                          " Sign in here",
+                          AppStrings.signInHere,
                           style: TextStyle(
                             color: AppColors.primaryPurple,
                             fontWeight: FontWeight.bold,

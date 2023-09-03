@@ -7,6 +7,7 @@ abstract class AppColors {
   static Color primaryPurple = const Color(0xFF8c5fa7);
   static Color secondaryPurple = const Color(0xFF7a77b5);
   static Color primaryWhite = const Color(0xFFFFFFFF);
+  static Color primaryBlack = const Color(0xFF000000);
   static final LinearGradient gradientBackground = LinearGradient(
     colors: [
       primaryPurple,

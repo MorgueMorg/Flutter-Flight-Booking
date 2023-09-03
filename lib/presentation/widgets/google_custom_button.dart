@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_event.dart';
 
@@ -14,7 +15,7 @@ class GoogleCustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55.h,
+      height: 55.w,
       width: 400.w,
       child: TextButton(
         style: TextButton.styleFrom(
@@ -35,14 +36,16 @@ class GoogleCustomButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset("assets/icons/Google.svg",),
+            SvgPicture.asset(
+              "assets/icons/Google.svg",
+            ),
             SizedBox(width: 15.w),
             Text(
-              "Continue with Google",
+              AppStrings.continueWithGoogle,
               maxLines: 1,
               style: TextStyle(
                 fontSize: 16.sp,
-                color: AppColors.secondaryPurple,
+                color: Colors.grey[800],
               ),
             ),
           ],

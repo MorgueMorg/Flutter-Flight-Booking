@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobyte_flight/common/constants/app_colors.dart';
 import 'package:mobyte_flight/common/constants/menu_enum.dart';
 import 'package:mobyte_flight/common/widgets/custom_bottom_navbar.dart';
 
@@ -8,8 +9,24 @@ class BookingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Booking"),
+      body: Stack(
+        children: <Widget>[
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/airplane_above.png"),
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          Center(
+            child: Text(
+              "Тут я хотел сделать бронь мест,\n но не успел",
+              style: TextStyle(color: AppColors.primaryBlack),
+              textAlign: TextAlign.center,
+            ),
+          )
+        ],
       ),
       bottomNavigationBar: const CustomBottomNavBar(
         selectedMenu: MenuEnum.booking,
