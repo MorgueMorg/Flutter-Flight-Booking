@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mobyte_flight/firebase_options.dart';
-import 'package:mobyte_flight/presentation/mobyte_flight.dart';
+import 'package:mobyte_flight/src/mobyte_flight.dart';
 
 void main() => runZonedGuarded(
       () async {
