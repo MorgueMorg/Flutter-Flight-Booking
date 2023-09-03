@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/constants/app_text_styles.dart';
 import 'package:mobyte_flight/domain/entities/flight_info/flight_info_entity.dart';
 
 class FlightCard extends StatelessWidget {
   const FlightCard({
-    super.key,
+    Key? key,
     required this.flightInfo,
-  });
+  }) : super(key: key);
 
   final FlightInfoEntity flightInfo;
 
@@ -19,24 +20,38 @@ class FlightCard extends StatelessWidget {
         "/details",
         extra: flightInfo,
       ),
-      child: ClipPath(
-        child: Material(
-          elevation: 4.r,
-          color: AppColors.appBackground,
-          child: ClipPath(
-            clipper: _TicketClipper(12.0),
-            child: Card(
-              elevation: 0.0,
-              margin: EdgeInsets.all(2.r),
-              child: _buildCardContent(),
+      child: Material(
+        elevation: 4.r,
+        color: AppColors.appBackground,
+        child: ClipPath(
+          clipper: _TicketClipper(12.0),
+          child: Card(
+            elevation: 0.0,
+            margin: EdgeInsets.all(2.r),
+            child: Column(
+              children: [
+                CartContent(
+                  flightInfo: flightInfo,
+                ),
+              ],
             ),
           ),
         ),
       ),
     );
   }
+}
 
-  SizedBox _buildCardContent() {
+class CartContent extends StatelessWidget {
+  final FlightInfoEntity flightInfo;
+
+  const CartContent({
+    Key? key,
+    required this.flightInfo,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return SizedBox(
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -49,9 +64,15 @@ class FlightCard extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(bottom: 8.r),
-                    child: Text("${flightInfo.departure?.timezone}"),
+                    child: Text(
+                      "${flightInfo.departure?.timezone}",
+                      style: AppTextStyles.subTitleStyle,
+                    ),
                   ),
-                  Text("${flightInfo.departure?.iata}"),
+                  Text(
+                    "${flightInfo.departure?.iata}",
+                    style: AppTextStyles.subTitleStyle,
+                  ),
                 ],
               ),
             ),
@@ -67,7 +88,10 @@ class FlightCard extends StatelessWidget {
                   color: AppColors.primaryPurple,
                 ),
               ),
-              Text("${flightInfo.flight?.iata}"),
+              Text(
+                "${flightInfo.flight?.iata}",
+                style: AppTextStyles.subTitleStyle,
+              ),
             ],
           ),
           Expanded(
@@ -83,9 +107,15 @@ class FlightCard extends StatelessWidget {
                     padding: EdgeInsets.only(
                       bottom: 8.r,
                     ),
-                    child: Text("${flightInfo.arrival?.timezone}"),
+                    child: Text(
+                      "${flightInfo.arrival?.timezone}",
+                      style: AppTextStyles.contentStyle,
+                    ),
                   ),
-                  Text("${flightInfo.arrival?.iata}"),
+                  Text(
+                    "${flightInfo.arrival?.iata}",
+                    style: AppTextStyles.subTitleStyle,
+                  ),
                 ],
               ),
             ),

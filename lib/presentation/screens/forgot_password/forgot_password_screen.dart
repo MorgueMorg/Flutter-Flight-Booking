@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
+import 'package:mobyte_flight/common/constants/app_text_styles.dart';
 import 'package:mobyte_flight/presentation/screens/forgot_password/widgets/forgot_password_form.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
@@ -8,7 +10,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Forgot Password"),
+        title: Text(AppStrings.forgotPassword),
       ),
       body: SizedBox(
         width: double.infinity,
@@ -21,21 +23,21 @@ class ForgotPasswordScreen extends StatelessWidget {
               children: [
                 SizedBox(height: 30.h),
                 Text(
-                  "Forgot Password",
-                  style: TextStyle(
-                    fontSize: 28.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  AppStrings.forgotPassword,
+                  style: AppTextStyles.titleStyle,
                 ),
                 SizedBox(height: 15.h),
-                const Text(
-                  "Please enter your email and we will send \nyou a link to return to your account",
+                Text(
+                  AppStrings.returnAccount,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 30.h,
                 ),
                 const ForgotPasswordForm(),
+                SizedBox(
+                  height: 30.h,
+                ),
               ],
             ),
           ),

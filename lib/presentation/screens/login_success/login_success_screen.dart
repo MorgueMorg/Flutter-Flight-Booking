@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
 import 'package:mobyte_flight/presentation/widgets/default_button.dart';
 
 class LoginSuccessScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class LoginSuccessScreen extends StatelessWidget {
           children: [
             const Spacer(),
             Text(
-              "Success!",
+              AppStrings.success,
               style: TextStyle(
                 fontSize: 30.sp,
                 fontWeight: FontWeight.bold,
@@ -34,11 +35,11 @@ class LoginSuccessScreen extends StatelessWidget {
             SizedBox(
               width: 200.w,
               child: DefaultButton(
-                text: "Back to Home",
+                text: AppStrings.backToHome,
                 press: () {
                   context.go("/main");
                 },
-                height: 60.h,
+                height: 60.w,
                 width: 400.w,
               ),
             ),

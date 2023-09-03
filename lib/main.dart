@@ -12,7 +12,6 @@ void main() => runZonedGuarded(
         await Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
         );
-
         runApp(const MobyteFlightApp());
       },
       (error, stackTrace) {

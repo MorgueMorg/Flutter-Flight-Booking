@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
 import 'package:mobyte_flight/common/constants/menu_enum.dart';
 import 'package:mobyte_flight/common/widgets/custom_bottom_navbar.dart';
 import 'package:mobyte_flight/domain/repositories/auth_repository.dart';
@@ -18,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
+        title: Text(AppStrings.profile),
       ),
       body: Center(
         child: Column(
@@ -29,8 +30,8 @@ class ProfileScreen extends StatelessWidget {
             Text("Email: ${user.email}"),
             SizedBox(height: 50.h),
             DefaultButton(
-              text: "Sign Out",
-              height: 45.h,
+              text: AppStrings.signOut,
+              height: 45.w,
               width: 250.w,
               press: () async {
                 try {

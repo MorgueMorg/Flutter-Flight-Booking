@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/constants/app_errors.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
+import 'package:mobyte_flight/common/constants/app_text_styles.dart';
 import 'package:mobyte_flight/common/constants/menu_enum.dart';
 import 'package:mobyte_flight/common/widgets/custom_bottom_navbar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +11,7 @@ import 'package:mobyte_flight/presentation/bloc/search_bloc/search_bloc.dart';
 import 'package:mobyte_flight/presentation/bloc/search_bloc/search_event.dart';
 import 'package:mobyte_flight/presentation/bloc/search_bloc/search_state.dart';
 import 'package:mobyte_flight/presentation/screens/main/widgets/flight_card.dart';
-import 'package:mobyte_flight/presentation/screens/main/widgets/search_field.dart';
+import 'package:mobyte_flight/presentation/screens/search/widgets/search_field.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -17,7 +20,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Main'),
+        title: const Text("Booking"),
       ),
       body: Column(
         children: [
@@ -27,11 +30,15 @@ class SearchScreen extends StatelessWidget {
               context.read<SearchBloc>().add(SearchFlightEvent(value));
             },
           ),
+          SizedBox(height: 20.h),
           BlocBuilder<SearchBloc, SearchState>(
             builder: (context, state) {
               return state.maybeWhen(
-                orElse: () => const Center(
-                  child: Text('Something went wrong.'),
+                orElse: () => Center(
+                  child: Text(
+                    AppStrings.enterQuery,
+                    style: AppTextStyles.subTitleStyle,
+                  ),
                 ),
                 loading: () => Center(
                   child: CircularProgressIndicator(
@@ -40,8 +47,8 @@ class SearchScreen extends StatelessWidget {
                 ),
                 loaded: (flights) {
                   if (flights.isEmpty) {
-                    return const Center(
-                      child: Text('No flights available.'),
+                    return Center(
+                      child: Text(AppErrors.noFlights),
                     );
                   }
                   return Expanded(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
 import 'package:mobyte_flight/common/styles/app_styles.dart';
 import 'package:mobyte_flight/common/utils/validators.dart';
 import 'package:mobyte_flight/presentation/widgets/default_button.dart';
@@ -56,8 +57,8 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
                 }
                 return null;
               },
-              decoration: AppStyles.inputDecoration(
-                  hintText: "Enter your email adress"),
+              decoration:
+                  AppStyles.inputDecoration(hintText: AppStrings.enterEmail),
             ),
             SizedBox(
               height: 30.h,
@@ -67,22 +68,22 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
               height: 20.h,
             ),
             DefaultButton(
-              text: "Continue",
+              text: AppStrings.continueButton,
               press: () {
                 if (_formKey.currentState!.validate()) {
-                  // Позже сделаю восстановление пароля через файрбэйз
+                  // ! Позже сделаю восстановление пароля через файрбэйз
                 }
               },
               height: 55.w,
               width: 400.w,
             ),
-            SizedBox(height: 200.h),
+            SizedBox(height: 150.h),
             GestureDetector(
               onTap: () {
                 context.push("/sign_up");
               },
               child: Text(
-                "Create an account",
+                AppStrings.createAccount,
                 style: TextStyle(
                   color: AppColors.primaryPurple,
                   fontWeight: FontWeight.bold,

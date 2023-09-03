@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/constants/app_errors.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
+import 'package:mobyte_flight/common/constants/app_text_styles.dart';
 import 'package:mobyte_flight/common/styles/app_styles.dart';
 import 'package:mobyte_flight/common/utils/validators.dart';
 import 'package:mobyte_flight/di/dependencies.dart';
@@ -62,21 +65,15 @@ class _SignFormState extends State<SignInForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Email Address",
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            ),
+            AppStrings.emailAddress,
+            style: AppTextStyles.infoTitleStyle,
           ),
           SizedBox(height: 5.h),
           _buildEmailFormField(),
           SizedBox(height: 30.h),
           Text(
-            "Password",
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            ),
+            AppStrings.password,
+            style: AppTextStyles.infoTitleStyle,
           ),
           SizedBox(height: 5.h),
           _buildPasswordFormField(),
@@ -92,15 +89,17 @@ class _SignFormState extends State<SignInForm> {
                   });
                 },
               ),
-              const Text("Remember me"),
+              Text(AppStrings.remember),
               const Spacer(),
               GestureDetector(
                 onTap: () {
                   context.push("/forgot_password");
                 },
-                child: const Text(
-                  "Forgot Password",
-                  style: TextStyle(decoration: TextDecoration.underline),
+                child: Text(
+                  AppStrings.forgotPassword,
+                  style: const TextStyle(
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
             ],
@@ -126,10 +125,10 @@ class _SignFormState extends State<SignInForm> {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
                   addError(error: Validators.kIncorrectData);
                 });
-                print("Авторизация не прошла");
+                print(AppErrors.authError);
               }
               return DefaultButton(
-                text: "Login",
+                text: AppStrings.loginButton,
                 press: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
@@ -147,8 +146,8 @@ class _SignFormState extends State<SignInForm> {
             },
           ),
           SizedBox(height: 20.h),
-          const SignDivider(
-            text: "or sign in with",
+          SignDivider(
+            text: AppStrings.orSignInWith,
           ),
           SizedBox(height: 20.h),
           GoogleCustomButton(
@@ -181,7 +180,9 @@ class _SignFormState extends State<SignInForm> {
         }
         return null;
       },
-      decoration: AppStyles.inputDecoration(hintText: "Enter your password"),
+      decoration: AppStyles.inputDecoration(
+        hintText: AppStrings.enterPassword,
+      ),
     );
   }
 
@@ -206,7 +207,7 @@ class _SignFormState extends State<SignInForm> {
         }
         return null;
       },
-      decoration: AppStyles.inputDecoration(hintText: "Enter your email"),
+      decoration: AppStyles.inputDecoration(hintText: AppStrings.enterEmail),
     );
   }
 }

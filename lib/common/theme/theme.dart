@@ -45,7 +45,10 @@ ThemeData darkTheme() {
       iconTheme: IconThemeData(
         color: AppColors.primaryWhite,
       ),
-      titleTextStyle: TextStyle(color: AppColors.primaryWhite, fontSize: 18.sp),
+      titleTextStyle: TextStyle(
+        color: AppColors.primaryWhite,
+        fontSize: 18.sp,
+      ),
     ),
     textTheme: basicTextTheme(base.textTheme),
     primaryColor: Colors.deepPurple[300],

@@ -18,10 +18,10 @@ class Carousel extends StatelessWidget {
       child: PageView.builder(
         itemCount: images.length,
         itemBuilder: (context, index) => Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10),
-          height: 150,
+          margin: EdgeInsets.symmetric(horizontal: 10.r),
+          height: 150.w,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(10.r),
             child: Image.asset(
               images[index],
               fit: BoxFit.cover,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/constants/app_text_styles.dart';
 
 abstract class AppStyles {
   static InputDecoration inputDecoration({String? hintText}) {
@@ -19,10 +20,7 @@ abstract class AppStyles {
         borderRadius: BorderRadius.circular(10.r),
       ),
       hintText: hintText ?? "Enter text here",
-      hintStyle: TextStyle(
-        fontSize: 16.sp,
-        fontWeight: FontWeight.normal,
-      ),
+      hintStyle: AppTextStyles.hintTextStyle,
     );
   }
 }

@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobyte_flight/common/constants/app_colors.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
+import 'package:mobyte_flight/common/constants/app_text_styles.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -47,12 +49,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 SvgPicture.asset("assets/icons/airplane.svg"),
                 SizedBox(height: 10.h),
                 Text(
-                  "Mobyte Flight",
-                  style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.primaryWhite,
-                  ),
+                  AppStrings.mobyteFlight,
+                  style: AppTextStyles.splashStyle,
                 ),
               ],
             ),

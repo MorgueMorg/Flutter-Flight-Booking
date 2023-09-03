@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobyte_flight/common/constants/app_strings.dart';
+import 'package:mobyte_flight/common/constants/app_text_styles.dart';
 import 'package:mobyte_flight/common/styles/app_styles.dart';
 import 'package:mobyte_flight/common/utils/validators.dart';
 import 'package:mobyte_flight/presentation/bloc/auth_bloc/auth_bloc.dart';
@@ -59,38 +61,29 @@ class _SignUpFormState extends State<SignUpForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Email Address",
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            ),
+            AppStrings.emailAddress,
+            style: AppTextStyles.infoTitleStyle,
           ),
           SizedBox(height: 5.h),
           buildEmailFormField(),
           SizedBox(height: 30.h),
           Text(
-            "Password",
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            ),
+            AppStrings.password,
+            style: AppTextStyles.infoTitleStyle,
           ),
           SizedBox(height: 5.h),
           buildPasswordFormField(),
           SizedBox(height: 30.h),
           Text(
-            "Confirm Password",
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            ),
+            AppStrings.confirmPassword,
+            style: AppTextStyles.infoTitleStyle,
           ),
           SizedBox(height: 5.h),
           buildConfirmPasswordFormField(),
           FormError(errors: errors),
           SizedBox(height: 40.h),
           DefaultButton(
-            text: "Sign Up",
+            text: AppStrings.signUp,
             press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
@@ -141,7 +134,9 @@ class _SignUpFormState extends State<SignUpForm> {
         }
         return null;
       },
-      decoration: AppStyles.inputDecoration(hintText: "Confirm your password"),
+      decoration: AppStyles.inputDecoration(
+        hintText: AppStrings.confirmYourPassword,
+      ),
     );
   }
 
@@ -168,7 +163,9 @@ class _SignUpFormState extends State<SignUpForm> {
         }
         return null;
       },
-      decoration: AppStyles.inputDecoration(hintText: "Enter your password"),
+      decoration: AppStyles.inputDecoration(
+        hintText: AppStrings.enterPassword,
+      ),
     );
   }
 
@@ -194,7 +191,9 @@ class _SignUpFormState extends State<SignUpForm> {
         }
         return null;
       },
-      decoration: AppStyles.inputDecoration(hintText: "Enter your email"),
+      decoration: AppStyles.inputDecoration(
+        hintText: AppStrings.enterEmail,
+      ),
     );
   }
 }
