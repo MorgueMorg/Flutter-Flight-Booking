@@ -25,61 +25,69 @@ class _MainScreenState extends State<MainScreen> {
     context.read<FlightBloc>().add(const FetchFlightEvent());
   }
 
+  Future<void> _refreshData() async {
+    context.read<FlightBloc>().add(const FetchFlightEvent());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Main"),
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            SizedBox(height: 15.h),
-            const Carousel(),
-            SizedBox(height: 20.h),
-            BlocBuilder<FlightBloc, FlightState>(
-              builder: (context, state) {
-                return state.maybeWhen(
-                  orElse: () => Center(
-                    child: Text(
-                      AppErrors.somethingWrong,
+      body: RefreshIndicator(
+        color: AppColors.primaryPurple,
+        onRefresh: _refreshData,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              SizedBox(height: 15.h),
+              const Carousel(),
+              SizedBox(height: 20.h),
+              BlocBuilder<FlightBloc, FlightState>(
+                builder: (context, state) {
+                  return state.maybeWhen(
+                    orElse: () => Center(
+                      child: Text(
+                        AppErrors.somethingWrong,
+                      ),
                     ),
-                  ),
-                  loading: () => Center(
-                    child: CircularProgressIndicator(
-                      color: AppColors.primaryPurple,
+                    loading: () => Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.primaryPurple,
+                      ),
                     ),
-                  ),
-                  loaded: (flights) {
-                    if (flights.isEmpty) {
-                      return Center(
-                        child: Text(AppErrors.noFlights),
-                      );
-                    }
-                    return ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      itemCount: flights.length,
-                      itemBuilder: (context, index) {
-                        final flightInfo = flights[index];
-                        return Column(
-                          children: [
-                            SizedBox(height: 3.h),
-                            FlightCard(flightInfo: flightInfo),
-                          ],
+                    loaded: (flights) {
+                      if (flights.isEmpty) {
+                        return Center(
+                          child: Text(AppErrors.noFlights),
                         );
-                      },
-                    );
-                  },
-                  error: (errorMessage) => Center(
-                    child: Text('Error: $errorMessage'),
-                  ),
-                );
-              },
-            ),
-          ],
+                      }
+                      return ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: flights.length,
+                        itemBuilder: (context, index) {
+                          final flightInfo = flights[index];
+                          return Column(
+                            children: [
+                              SizedBox(height: 3.h),
+                              FlightCard(flightInfo: flightInfo),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                    error: (errorMessage) => Center(
+                      child: Text('Error: $errorMessage'),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const CustomBottomNavBar(
