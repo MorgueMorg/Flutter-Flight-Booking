@@ -40,6 +40,7 @@ ThemeData darkTheme() {
 
   return base.copyWith(
     appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.appBackground,
       elevation: 0,
       iconTheme: IconThemeData(
         color: AppColors.primaryWhite,

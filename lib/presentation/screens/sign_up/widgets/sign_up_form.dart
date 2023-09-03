@@ -103,7 +103,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 }
               }
             },
-            height: 55.h,
+            height: 55.w,
             width: 400.w,
           ),
           SizedBox(height: 20.h),

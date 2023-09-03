@@ -15,16 +15,15 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color inActiveIconColor = AppColors.appBackground;
+    Color inActiveIconColor = Colors.white;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 14.h),
+      padding: EdgeInsets.symmetric(vertical: 4.h),
       decoration: BoxDecoration(
-        gradient: AppColors.gradientBackground,
-        color: AppColors.primaryPurple,
+        color: AppColors.appBackground,
         boxShadow: [
           BoxShadow(
             offset: const Offset(0, -1),
-            color: const Color(0xFFDADADA).withOpacity(0.15),
+            color: AppColors.primaryPurple,
           ),
         ],
       ),
@@ -41,7 +40,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   width: 22.w,
                   // ignore: deprecated_member_use
                   color: MenuEnum.main == selectedMenu
-                      ? AppColors.primaryBlue
+                      ? AppColors.primaryPurple
                       : inActiveIconColor),
             ),
             IconButton(
@@ -53,7 +52,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   width: 22.w,
                   // ignore: deprecated_member_use
                   color: MenuEnum.search == selectedMenu
-                      ? AppColors.primaryBlue
+                      ? AppColors.primaryPurple
                       : inActiveIconColor),
             ),
             IconButton(
@@ -65,7 +64,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   width: 22.w,
                   // ignore: deprecated_member_use
                   color: MenuEnum.booking == selectedMenu
-                      ? AppColors.primaryBlue
+                      ? AppColors.primaryPurple
                       : inActiveIconColor),
             ),
             IconButton(
@@ -77,7 +76,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   width: 22.w,
                   // ignore: deprecated_member_use
                   color: MenuEnum.account == selectedMenu
-                      ? AppColors.primaryBlue
+                      ? AppColors.primaryPurple
                       : inActiveIconColor),
             ),
           ],

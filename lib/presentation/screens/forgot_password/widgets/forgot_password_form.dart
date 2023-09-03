@@ -73,7 +73,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
                   // Позже сделаю восстановление пароля через файрбэйз
                 }
               },
-              height: 55.h,
+              height: 55.w,
               width: 400.w,
             ),
             SizedBox(height: 200.h),

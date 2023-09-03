@@ -29,7 +29,7 @@ class SearchField extends StatelessWidget {
         fontWeight: FontWeight.normal,
       ).copyWith(
         decorationColor: AppColors.primaryWhite,
-        height: 1.2,
+        height: 1.2.h,
       ),
       onChanged: onChanged,
       decoration: buildSearchInputDecoration().copyWith(
@@ -50,8 +50,8 @@ class SearchField extends StatelessWidget {
           fontWeight: FontWeight.normal,
         ),
         isDense: true,
-        suffixIconConstraints: const BoxConstraints(
-          maxHeight: 45,
+        suffixIconConstraints: BoxConstraints(
+          maxHeight: 45.h,
         ),
         counterText: "",
       ),
@@ -67,8 +67,8 @@ class SearchField extends StatelessWidget {
       border: border,
       enabledBorder: border,
       focusedBorder: border,
-      prefixIconConstraints: const BoxConstraints(
-        maxHeight: 45,
+      prefixIconConstraints: BoxConstraints(
+        maxHeight: 45.h,
       ),
       prefixIcon: IconButton(
         onPressed: () {},

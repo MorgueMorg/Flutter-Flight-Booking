@@ -25,7 +25,7 @@ class SignInScreen extends StatelessWidget {
                 children: [
                   SizedBox(height: 30.h),
                   Text(
-                    "Welcome back",
+                    "Welcome",
                     style: TextStyle(
                       fontSize: 28.sp,
                       fontWeight: FontWeight.bold,

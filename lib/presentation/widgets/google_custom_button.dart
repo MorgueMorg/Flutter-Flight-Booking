@@ -14,7 +14,7 @@ class GoogleCustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55.h,
+      height: 55.w,
       width: 400.w,
       child: TextButton(
         style: TextButton.styleFrom(
@@ -35,14 +35,16 @@ class GoogleCustomButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset("assets/icons/Google.svg",),
+            SvgPicture.asset(
+              "assets/icons/Google.svg",
+            ),
             SizedBox(width: 15.w),
             Text(
               "Continue with Google",
               maxLines: 1,
               style: TextStyle(
                 fontSize: 16.sp,
-                color: AppColors.secondaryPurple,
+                color: Colors.grey[800],
               ),
             ),
           ],

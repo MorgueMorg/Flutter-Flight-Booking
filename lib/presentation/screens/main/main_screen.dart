@@ -17,7 +17,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Main'),
+        title: const Text('Book Flight'),
       ),
       body: ListView(
         children: [
@@ -30,8 +30,10 @@ class MainScreen extends StatelessWidget {
                 orElse: () => const Center(
                   child: Text('Something went wrong.'),
                 ),
-                loading: () => const Center(
-                  child: CircularProgressIndicator(),
+                loading: () => Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.primaryPurple,
+                  ),
                 ),
                 loaded: (flights) {
                   if (flights.isEmpty) {
@@ -40,13 +42,19 @@ class MainScreen extends StatelessWidget {
                     );
                   }
                   return ListView.builder(
+                    itemExtent: 140.h,
                     physics: const NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     itemCount: flights.length,
                     itemBuilder: (context, index) {
                       final flightInfo = flights[index];
-                      return FlightCard(flightInfo: flightInfo);
+                      return Padding(
+                        padding: EdgeInsets.all(10.r),
+                        child: FlightCard(
+                          flightInfo: flightInfo,
+                        ),
+                      );
                     },
                   );
                 },
@@ -63,7 +71,10 @@ class MainScreen extends StatelessWidget {
         onPressed: () {
           context.read<FlightBloc>().add(const FetchFlightEvent());
         },
-        child: const Icon(Icons.refresh),
+        child: Icon(
+          Icons.refresh,
+          color: AppColors.primaryWhite,
+        ),
       ),
       bottomNavigationBar: const CustomBottomNavBar(
         selectedMenu: MenuEnum.main,
