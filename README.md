@@ -40,10 +40,6 @@
    ```
 
 <h2 align="center"> Info </h2>
-
-Проект разработан на Flutter (dart), с использованием библиотеки Bonfire на движке Flame.
-Это RPG-Игра, где по сюжету нужно спасти принцессу из логова монстра. Функционал премиума (монетизация также присутствует).
-
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
